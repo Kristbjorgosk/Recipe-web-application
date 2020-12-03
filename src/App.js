@@ -1,6 +1,7 @@
 import React from "react";
 import { button } from "./Component/Button";
-import SearchBy from "./Component/SearchBy";
+import SearchByRecipe from "./Component/SearchByRecipe";
+import SearchByIngredients from "./Component/SearchByIngredients";
 
 function App() {
   function search() {}
@@ -10,7 +11,8 @@ function App() {
         See recipes
       </button>
       
-      <SearchBy />
+      <SearchByRecipe />
+      <SearchByIngredients />
       
     </div>
   );

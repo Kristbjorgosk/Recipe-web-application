@@ -1,19 +1,19 @@
 import React from "react";
 import { apiKey } from "../Api";
 
-function SearchBy() {
+function SearchByIngredients() {
   let timeoutId = null;
 
   function search(e) {
-    const query = e.target.value
+    const ingredients = e.target.value
   
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
 
-    if (query) {
+    if (ingredients) {
       timeoutId = setTimeout(() => {
-        const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&addRecipeInformation=true`;
+        const url = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}`;
 
         fetch(url)
           .then((response) => response.json())
@@ -32,8 +32,8 @@ function SearchBy() {
   }
 
   return (
-    <input type="search" onKeyUp={search} placeholder="search" />
+    <input type="search" onKeyUp={search} placeholder="Search by Ingredients" />
   )
 }
 
-export default SearchBy;
+export default SearchByIngredients;
