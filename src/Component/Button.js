@@ -1,11 +1,11 @@
-function button(props) {
+function Button(props) {
   return (
     <div>
-      <button onClick={props.click} className={`button${props.color}`}>
-        props.text
+      <button onClick={props.click} className={`mainButtons${props.color}`}>
+        {props.text}
       </button>
     </div>
   );
 }
 
-export { button };
+export default Button;
