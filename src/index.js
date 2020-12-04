@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 // import "./main.css";
 import App from "./App";
+import "fontsource-roboto";
+
 // import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
