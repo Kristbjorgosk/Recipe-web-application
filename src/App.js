@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "./Component/Button";
 import SearchByRecipe from "./Component/SearchByRecipe";
 import SearchByIngredients from "./Component/SearchByIngredients";
-import RecipeCard from "./Component/RecipeCard";
+import { RecipeList, updateRecipes } from "./Component/RecipeList";
 import { apiKey } from "./Api";
 
 function App() {
   function search() {}
 
   // function to get different diets and it is trickered when clicking the button below in return section
-  const [recipes, setRecipes] = useState([]);
   async function categories(diet) {
     const API_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&diet=${diet}`;
     const response = await fetch(API_URL);
     const data = await response.json();
-    setRecipes(data.results);
+    // update RecipeList with API results by calling updateRecipes function from the RecipeList component
+    updateRecipes(data.results);
     console.log(data.results);
   }
 
@@ -28,11 +28,7 @@ function App() {
       <Button click={() => categories("Vegetarian")} text="Vegetarian"></Button>
       <Button click={() => categories("Pescetarian")} text="Pescetarian"></Button>
       <Button click={() => categories("Paleo")} text="Paleo"></Button>
-      {recipes.map((recipe) => {
-        return (
-          <RecipeCard title={recipe.title} image={recipe.image}></RecipeCard>
-        );
-      })}
+      <RecipeList />
     </div>
   );
 }
