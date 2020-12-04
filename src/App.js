@@ -1,31 +1,34 @@
-import React, { useState } from "react";
-import { apiKey } from "./Api";
-import "./Style/main.css";
-import "fontsource-roboto";
-import Takki from "./Component/Button";
-import RecipeCard from "./Component/RecipeCard";
-import Header from "./Component/Header";
-import NavbarFooter from "./Component/Navbar";
+import React from "react";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
+import SearchByRecipe from "./Component/SearchByRecipe";
+import SearchByIngredients from "./Component/SearchByIngredients";
+import { RecipeList, updateRecipes } from "./Component/RecipeList";
+import { apiKey } from "./Api";
+import Takki from "./Component/Button";
+import Header from "./Component/Header";
+import NavbarFooter from "./Component/Navbar";
+import "./Style/main.css";
+import "fontsource-roboto";
 
 function App() {
-  function search() {}
-
-  const [recipes, setRecipes] = useState([]);
+  // function to get different diets and it is trickered when clicking the button below in return section
   async function categories(diet) {
     const API_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&diet=${diet}`;
     const response = await fetch(API_URL);
     const data = await response.json();
-    setRecipes(data.results);
+    // update RecipeList with API results by calling updateRecipes function from the RecipeList component
+    updateRecipes(data.results);
     console.log(data.results);
   }
-  // function to get different diets and it is trickered when clicking the button below in return section
 
   return (
     // sx is about the same size as mobile -this is mobile first approach
     <Container maxWidth="xs">
       <Header />
+
+      <SearchByRecipe />
+      <SearchByIngredients />
 
       {/* <Button click={search} text="search" color="red"></Button>
       <SearchBy />
@@ -46,12 +49,7 @@ function App() {
 
       {/* the RecipeCard gets it function from the function above, it maps through the recipes and displays 
       the recipe card when the button (Takki) is clicked */}
-      <RecipeCard />
-      {recipes.map((recipe) => {
-        return (
-          <RecipeCard title={recipe.title} image={recipe.image}></RecipeCard>
-        );
-      })}
+      <RecipeList />
 
       {/* Calling the NavbarFooter to display the navbar */}
       <NavbarFooter />
