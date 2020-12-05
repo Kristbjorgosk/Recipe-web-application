@@ -1,8 +1,7 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import SearchByRecipe from "./Component/SearchByRecipe";
-import SearchByIngredients from "./Component/SearchByIngredients";
+import RecipeSearchForm from "./Component/RecipeSearchForm";
 import { RecipeList, updateRecipes } from "./Component/RecipeList";
 import { apiKey } from "./Api";
 import Takki from "./Component/Button";
@@ -27,8 +26,7 @@ function App() {
     <Container maxWidth="xs">
       <Header />
 
-      <SearchByRecipe />
-      <SearchByIngredients />
+      <RecipeSearchForm />
 
       {/* <Button click={search} text="search" color="red"></Button>
       <SearchBy />
