@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Container from "@material-ui/core/Container";
 import FrontPage from "./FrontPage";
-import SearchByRecipe from "./Component/SearchByRecipe";
-import SearchByIngredients from "./Component/SearchByIngredients";
+import RecipeSearchForm from "./Component/RecipeSearchForm"
 import { RecipeList } from "./Component/RecipeList";
 import NavbarFooter from "./Component/Navbar";
 import "./Style/main.css";
@@ -13,8 +12,8 @@ function App() {
     // sx is about the same size as mobile -this is mobile first approach
     <Container maxWidth="xs">
       <FrontPage />
-      <SearchByRecipe />
-      <SearchByIngredients />
+      <RecipeSearchForm />
+      
 
       <RecipeList />
       <NavbarFooter />
