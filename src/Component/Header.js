@@ -44,7 +44,7 @@ function Header(props) {
 
         {/* the text that is inside the header */}
         <Typography gutterBottom variant="h3" component="h1">
-          Coooking made simple!
+          Cooking made simple!
         </Typography>
         <Typography variant="h6" component="p">
           Discover recipes, get motivated and start cooking!
