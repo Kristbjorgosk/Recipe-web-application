@@ -1,14 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import "./main.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { createBrowserHistory } from "history";
 import App from "./App";
 import "fontsource-roboto";
 
 // import reportWebVitals from "./reportWebVitals";
 
+const history = createBrowserHistory();
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router history={history}>
+      <App />
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

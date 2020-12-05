@@ -6,6 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import AddIcon from "@material-ui/icons/Add";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
+import { salmon } from "@material-ui/core/colors";
 
 // setting up the styles, in this case, just for the "logo" - will change the logo once we have one
 const useStyles = makeStyles((theme) => ({
@@ -29,9 +30,8 @@ function Header(props) {
 
       {/* AppBar is the header itself */}
       <AppBar
-        position="Sticky"
-        maxWidth="xs"
-        style={{ padding: 20, marginBottom: 20 }}
+        position="relative"
+        style={{ padding: 20, marginBottom: 20, backgroundColor: "salmon" }}
       >
         {/* Toolbar keeps the logo / image */}
         <Toolbar style={{ paddingTop: 30, paddingBottom: 90 }}>
