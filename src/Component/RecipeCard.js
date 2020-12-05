@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -13,15 +14,14 @@ import GridList from "@material-ui/core/GridList";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 180,
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "hidden",
   },
   gridList: {
-    width: 500,
-    height: 450,
+    width: 180,
+    height: 200,
   },
   media: {
     height: 0,
@@ -43,37 +43,26 @@ function RecipeCard(props) {
   };
 
   return (
-    <Grid container spacing={2} justify="center">
-      <Grid item xs style={{ display: "inline-flex" }}>
-        <Card className={classes.root}>
-          <CardMedia
-            className={classes.media}
-            image={props.image}
-            title="Paella dish"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="body1" component="h1">
-              {props.title}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Here comes a text about the recipe
-            </Typography>
-          </CardContent>
-          <CardActions disableSpacing>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Time / Servings: {""}
-            </Typography>
+    <Card className={classes.root}>
+      <CardMedia className={classes.media} image={props.image} />
+      <CardContent>
+        <Typography gutterBottom variant="body1" component="h1">
+          {props.title}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          Here comes a text about the recipe
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <Typography variant="body2" color="textSecondary" component="p">
+          Time / Servings: {""}
+        </Typography>
 
-            <IconButton
-              aria-label="add to favorites"
-              className={classes.favorite}
-            >
-              <FavoriteIcon />
-            </IconButton>
-          </CardActions>
-        </Card>
-      </Grid>
-    </Grid>
+        <IconButton aria-label="add to favorites" className={classes.favorite}>
+          <FavoriteIcon />
+        </IconButton>
+      </CardActions>
+    </Card>
   );
 }
 

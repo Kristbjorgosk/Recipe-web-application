@@ -7,6 +7,9 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import HomeIcon from "@material-ui/icons/Home";
 import RestaurantIcon from "@material-ui/icons/Restaurant";
+import RecipeFilterPage from "../RecipeFilterPage";
+import { salmon, white } from "@material-ui/core/colors";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -20,6 +23,7 @@ function NavbarFooter(props) {
 
   return (
     <BottomNavigation
+      style={{ backgroundColor: "salmon" }}
       // setting up the size for mobile
       maxWidth="xs"
       value={value}
@@ -30,6 +34,7 @@ function NavbarFooter(props) {
       className={classes.root}
     >
       {/* the emojis are imported above */}
+
       <BottomNavigationAction label="Tips" icon={<EmojiObjectsIcon />} />
       <BottomNavigationAction label="Recipes" icon={<RestaurantIcon />} />
       <BottomNavigationAction label="Home" icon={<HomeIcon />} />

@@ -4,9 +4,16 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& > *": {
-      margin: theme.spacing(1),
-    },
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    overflow: "hidden",
+    backgroundColor: theme.palette.background.paper,
+  },
+  gridList: {
+    flexWrap: "nowrap",
+    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+    transform: "translateZ(0)",
   },
 }));
 
@@ -16,18 +23,8 @@ function Takki(props) {
   return (
     <div className={classes.root}>
       {/* the Button is imported above from MUI, the value for props is set in app.js */}
-      <Button
-        onClick={props.click}
-        className={`mainButtons${props.color}`}
-        // some styling, we will costumize it more when the UI is ready
-        style={{
-          width: 120,
-          fontSize: 14,
-          height: 50,
-          margin: 5,
-        }}
-        variant="contained"
-      >
+
+      <Button onClick={props.click} className={classes.buttons}>
         {props.text}
       </Button>
     </div>
