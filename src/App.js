@@ -3,8 +3,8 @@ import Container from "@material-ui/core/Container";
 import FrontPage from "./FrontPage";
 import SearchByRecipe from "./Component/SearchByRecipe";
 import SearchByIngredients from "./Component/SearchByIngredients";
-import RecipeList from "./Component/RecipeList";
-import { NavbarFooter } from "./Component/Navbar";
+import { RecipeList } from "./Component/RecipeList";
+import NavbarFooter from "./Component/Navbar";
 import "./Style/main.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
