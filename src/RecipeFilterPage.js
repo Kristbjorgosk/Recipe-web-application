@@ -18,7 +18,7 @@ function RecipeFilterPage() {
 
   return (
     // sx is about the same size as mobile -this is mobile first approach
-    <div>
+    <>
       <Typography variant="h3" component="h1">
         Þetta er recipe Filter page!!!!!!
       </Typography>
@@ -36,7 +36,7 @@ function RecipeFilterPage() {
           </Grid>
         );
       })}
-    </div>
+    </>
   );
 }
 

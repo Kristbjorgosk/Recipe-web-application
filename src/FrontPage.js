@@ -9,6 +9,8 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { GridList } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
+import RandomFactGenerator from "./Component/RandomFactGenerator";
+import TabScrollButton from "@material-ui/core/TabScrollButton";
 
 function FrontPage() {
   const [recipes, setRecipes] = useState([]);
@@ -27,17 +29,20 @@ function FrontPage() {
       <Typography variant="h3" component="h1">
         Þetta er front page!!!!!!
       </Typography>
+
+      <RandomFactGenerator />
+
       <Typography variant="h6" component="p">
         Categories
       </Typography>
 
       <Link to="/recipes?diet=ketogenic">Keto</Link>
 
-      {/* <GridList cols={1}>
-        <ButtonGroup orientation="horizontal" style={{ marginBottom: 5 }}> */}
-      {/* Displaying the Takki function from the Button.js folder */}
-      {/* Categories is the function above, it displays the diet that is in the () */}
-      {/* <Takki click={() => categories("Vegan")} text="Vegan"></Takki>
+      <GridList cols={1}>
+        <ButtonGroup orientation="horizontal" style={{ marginBottom: 5 }}>
+          {/* Displaying the Takki function from the Button.js folder */}
+          {/* Categories is the function above, it displays the diet that is in the () */}
+          <Takki click={() => categories("Vegan")} text="Vegan"></Takki>
           <Takki click={() => categories("Ketogenic")} text="Keto"></Takki>
           <Takki
             click={() => categories("Vegetarian")}
@@ -49,7 +54,7 @@ function FrontPage() {
           ></Takki>
           <Takki click={() => categories("Paleo")} text="Paleo"></Takki>
         </ButtonGroup>
-      </GridList> */}
+      </GridList>
       {recipes.map((recipe) => {
         return (
           <Grid container spacing={3}>

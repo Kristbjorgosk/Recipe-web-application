@@ -34,69 +34,68 @@ function Navbar() {
   };
   return (
     <Router>
-      <Paper square className={classes.root}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          variant="fullWidth"
-          indicatorColor="secondary"
-          textColor="secondary"
-          aria-label="icon label tabs example"
-        >
-          <Tab
-            to="/"
-            component={Link}
-            value={"/"}
-            icon={<HomeIcon />}
-            label="Home"
-          />
-          <Tab
-            to="/Tipspage"
-            component={Link}
-            value={"TipsPage"}
-            icon={<EmojiObjectsIcon />}
-            label="Tips"
-          />
-          <Tab
-            to="/Favourite"
-            component={Link}
-            value={"Favourite"}
-            icon={<FavoriteIcon />}
-            label="Favorite"
-          />
-          <Tab
-            to="/RecipeFilterPage"
-            component={Link}
-            value={"RecipeFilterPage"}
-            icon={<RestaurantIcon />}
-            label="Recipes"
-          />
-          <Tab
-            to="/Account"
-            component={Link}
-            value={"Account"}
-            icon={<AccountCircleIcon />}
-            label="Account"
-          />
-        </Tabs>
-        <Switch>
-          <Route exact path="/">
-            <FrontPage />
-          </Route>
-          <Route path="/Tipspage">
-            <TipsPage />
-          </Route>
-          <Route path="/Favourite">
-            <Favourite />
-          </Route>
-          <Route path="/RecipeFilterPage">
-            <RecipeFilterPage />
-          </Route>
-          <Route path="/Account">
-            <Account />
-          </Route>
-        </Switch>
-      </Paper>
+      <Tabs
+        className={classes.root}
+        value={value}
+        onChange={handleChange}
+        variant="fullWidth"
+        indicatorColor="secondary"
+        textColor="secondary"
+        aria-label="icon label tabs example"
+      >
+        <Tab
+          to="/"
+          component={Link}
+          value={"/"}
+          icon={<HomeIcon />}
+          label="Home"
+        />
+        <Tab
+          to="/Tipspage"
+          component={Link}
+          value={"TipsPage"}
+          icon={<EmojiObjectsIcon />}
+          label="Tips"
+        />
+        <Tab
+          to="/Favourite"
+          component={Link}
+          value={"Favourite"}
+          icon={<FavoriteIcon />}
+          label="Favorite"
+        />
+        <Tab
+          to="/RecipeFilterPage"
+          component={Link}
+          value={"RecipeFilterPage"}
+          icon={<RestaurantIcon />}
+          label="Recipes"
+        />
+        <Tab
+          to="/Account"
+          component={Link}
+          value={"Account"}
+          icon={<AccountCircleIcon />}
+          label="Account"
+        />
+      </Tabs>
+      <Switch>
+        <Route exact path="/">
+          <FrontPage />
+        </Route>
+        <Route path="/Tipspage">
+          <TipsPage />
+        </Route>
+        <Route path="/Favourite">
+          <Favourite />
+        </Route>
+        <Route path="/RecipeFilterPage">
+          <RecipeFilterPage />
+        </Route>
+        <Route path="/Account">
+          <Account />
+        </Route>
+      </Switch>
     </Router>
   );
 }
