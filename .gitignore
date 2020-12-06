@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /src/Api.js
+/src/Component/test.js
 
 # testing
 /coverage

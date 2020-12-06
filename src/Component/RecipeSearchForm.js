@@ -6,7 +6,6 @@ import SearchByMinutes from "./SearchByMinutes";
 import IngredientTagList from "./IngredientTagList";
 import { apiKey } from "../Api";
 import { updateRecipes } from "./RecipeList";
-import RandomFactGenerator from "./RandomFactGenerator";
 
 class RecipeSearchForm extends Component {
   constructor(props) {
@@ -113,7 +112,6 @@ class RecipeSearchForm extends Component {
   render() {
     return (
       <div>
-        <RandomFactGenerator />
         <SearchByRecipe setQuery={this.setQuery} />
         <SearchByIngredients addIngredient={this.addIngredient} />
         <SearchByDiet setDiet={this.setDiet} />
