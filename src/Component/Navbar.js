@@ -13,11 +13,7 @@ import { salmon, white } from "@material-ui/core/colors";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import TipsPage from "../Pages/TipsPage";
 import FrontPage from "../Pages/FrontPage";
-<<<<<<< HEAD
 import FavouritePage from "../Pages/FavouritePage";
-=======
-import Favourite from "../Pages/FavouritePage";
->>>>>>> c83f1b16625579257fdc906e37ec2643acb85333
 import Account from "../Pages/Account";
 
 const useStyles = makeStyles({
