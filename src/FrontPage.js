@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { GridList } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
+import { Link } from "react-router-dom";
 
 function FrontPage() {
   const [recipes, setRecipes] = useState([]);
@@ -29,11 +30,13 @@ function FrontPage() {
         Categories
       </Typography>
 
-      <GridList cols={1}>
-        <ButtonGroup orientation="horizontal" style={{ marginBottom: 5 }}>
+      <Link to="/recipes?diet=ketogenic">Keto</Link>
+
+      {/* <GridList cols={1}>
+        <ButtonGroup orientation="horizontal" style={{ marginBottom: 5 }}> */}
           {/* Displaying the Takki function from the Button.js folder */}
           {/* Categories is the function above, it displays the diet that is in the () */}
-          <Takki click={() => categories("Vegan")} text="Vegan"></Takki>
+          {/* <Takki click={() => categories("Vegan")} text="Vegan"></Takki>
           <Takki click={() => categories("Ketogenic")} text="Keto"></Takki>
           <Takki
             click={() => categories("Vegetarian")}
@@ -45,7 +48,7 @@ function FrontPage() {
           ></Takki>
           <Takki click={() => categories("Paleo")} text="Paleo"></Takki>
         </ButtonGroup>
-      </GridList>
+      </GridList> */}
       {recipes.map((recipe) => {
         return (
           <Grid container spacing={3}>
