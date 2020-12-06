@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import Typography from "@material-ui/core/Typography";
 
 function Favourite() {
-  return <div>Helloooo þetta er Favourite síðan !! !! </div>;
+  return (
+    <div>
+      <Typography gutterBottom variant="h3" component="h1">
+        Helloooo þetta er Favourite síðan !! !!
+      </Typography>
+    </div>
+  );
 }
 
 export default Favourite;

@@ -24,8 +24,9 @@ function FrontPage() {
   return (
     // sx is about the same size as mobile -this is mobile first approach
     <div>
-      <Header />
-
+      <Typography variant="h3" component="h1">
+        Þetta er front page!!!!!!
+      </Typography>
       <Typography variant="h6" component="p">
         Categories
       </Typography>
@@ -34,9 +35,9 @@ function FrontPage() {
 
       {/* <GridList cols={1}>
         <ButtonGroup orientation="horizontal" style={{ marginBottom: 5 }}> */}
-          {/* Displaying the Takki function from the Button.js folder */}
-          {/* Categories is the function above, it displays the diet that is in the () */}
-          {/* <Takki click={() => categories("Vegan")} text="Vegan"></Takki>
+      {/* Displaying the Takki function from the Button.js folder */}
+      {/* Categories is the function above, it displays the diet that is in the () */}
+      {/* <Takki click={() => categories("Vegan")} text="Vegan"></Takki>
           <Takki click={() => categories("Ketogenic")} text="Keto"></Takki>
           <Takki
             click={() => categories("Vegetarian")}

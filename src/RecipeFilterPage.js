@@ -3,6 +3,7 @@ import RecipeCard from "./Component/RecipeCard";
 import Header from "./Component/Header";
 import { apiKey } from "./Component/Api";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
 function RecipeFilterPage() {
   const [recipes, setRecipes] = useState([]);
@@ -18,8 +19,9 @@ function RecipeFilterPage() {
   return (
     // sx is about the same size as mobile -this is mobile first approach
     <div>
-      <Header />
-
+      <Typography variant="h3" component="h1">
+        Þetta er recipe Filter page!!!!!!
+      </Typography>
       {/* the RecipeCard gets it function from the function above, it maps through the recipes and displays 
           the recipe card when the button (Takki) is clicked */}
       {recipes.map((recipe) => {
