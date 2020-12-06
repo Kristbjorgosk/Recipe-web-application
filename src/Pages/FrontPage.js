@@ -3,14 +3,13 @@ import { apiKey } from "../Api";
 import "fontsource-roboto";
 import Takki from "../Component/Button";
 import RecipeCard from "../Component/RecipeCard";
-import Header from "../Component/Header";
 import Typography from "@material-ui/core/Typography";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { GridList } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import RandomFactGenerator from "../Component/RandomFactGenerator";
-import TabScrollButton from "@material-ui/core/TabScrollButton";
+// import TabScrollButton from "@material-ui/core/TabScrollButton";
 
 function FrontPage() {
   const [recipes, setRecipes] = useState([]);
