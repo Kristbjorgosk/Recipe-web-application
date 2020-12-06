@@ -8,13 +8,13 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import HomeIcon from "@material-ui/icons/Home";
 import RestaurantIcon from "@material-ui/icons/Restaurant";
-import RecipeFilterPage from "../RecipeFilterPage";
+import RecipesFilterPage from "../Pages/RecipesFilterPage";
 import { salmon, white } from "@material-ui/core/colors";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import TipsPage from "../TipsPage";
-import FrontPage from "../FrontPage";
-import Favourite from "../Favourite";
-import Account from "../Account";
+import TipsPage from "../Pages/TipsPage";
+import FrontPage from "../Pages/FrontPage";
+import Favourite from "../Pages/FavouritePage";
+import Account from "../Pages/Account";
 
 const useStyles = makeStyles({
   root: {
@@ -66,9 +66,9 @@ function Navbar() {
           label="Favorite"
         />
         <Tab
-          to="/RecipeFilterPage"
+          to="/RecipesFilterPage"
           component={Link}
-          value={"RecipeFilterPage"}
+          value={"RecipesFilterPage"}
           icon={<RestaurantIcon />}
           label="Recipes"
         />
@@ -90,8 +90,8 @@ function Navbar() {
         <Route path="/Favourite">
           <Favourite />
         </Route>
-        <Route path="/RecipeFilterPage">
-          <RecipeFilterPage />
+        <Route path="/RecipesFilterPage">
+          <RecipesFilterPage />
         </Route>
         <Route path="/Account">
           <Account />

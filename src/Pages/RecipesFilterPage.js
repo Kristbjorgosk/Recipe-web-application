@@ -3,11 +3,10 @@ import Header from "../Component/Header";
 import RecipeSearchForm from "../Component/RecipeSearchForm";
 import { RecipeList } from "../Component/RecipeList";
 
-class RecipesPage extends Component {
+class RecipesFilterPage extends Component {
   render() {
     return (
       <>
-        <Header />
         <RecipeSearchForm />
         <RecipeList />
       </>
@@ -15,4 +14,4 @@ class RecipesPage extends Component {
   }
 }
 
-export default RecipesPage;
+export default RecipesFilterPage;
