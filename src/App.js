@@ -1,27 +1,26 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
-import FrontPage from "./FrontPage";
-import RecipesPage from "./Component/RecipesPage";
-import NavbarFooter from "./Component/Navbar";
 import "./Style/main.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import RandomFactGenerator from "./Component/RandomFactGenerator";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  BrowserRouter,
+} from "react-router-dom";
 
+import FrontPage from "./FrontPage";
+import TipsPage from "./TipsPage";
+import RecipesPage from "./Component/RecipesPage";
+import Header from "./Component/Header";
+import Navbar from "./Component/Navbar";
 
 function App() {
   return (
     <>
-      <Router>
-        {/* sx is about the same size as mobile -this is mobile first approach */}
-        <Container maxWidth="xs">
-          <RandomFactGenerator />
-          <Switch>
-            <Route exact path="/" component={FrontPage} />
-            <Route path="/recipes" component={RecipesPage} />
-          </Switch>
-          <NavbarFooter />
-        </Container>
-      </Router>
+      <Header />
+
+      <Navbar />
     </>
   );
 }

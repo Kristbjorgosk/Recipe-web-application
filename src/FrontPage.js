@@ -9,6 +9,8 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { GridList } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
+import RandomFactGenerator from "./Component/RandomFactGenerator";
+import TabScrollButton from "@material-ui/core/TabScrollButton";
 
 function FrontPage() {
   const [recipes, setRecipes] = useState([]);
@@ -24,7 +26,11 @@ function FrontPage() {
   return (
     // sx is about the same size as mobile -this is mobile first approach
     <div>
-      <Header />
+      <Typography variant="h3" component="h1">
+        Þetta er front page!!!!!!
+      </Typography>
+
+      <RandomFactGenerator />
 
       <Typography variant="h6" component="p">
         Categories

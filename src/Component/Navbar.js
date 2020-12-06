@@ -1,7 +1,8 @@
 import React from "react";
+import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
@@ -10,39 +11,94 @@ import RestaurantIcon from "@material-ui/icons/Restaurant";
 import RecipeFilterPage from "../RecipeFilterPage";
 import { salmon, white } from "@material-ui/core/colors";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import TipsPage from "../TipsPage";
+import FrontPage from "../FrontPage";
+import Favourite from "../Favourite";
+import Account from "../Account";
 
 const useStyles = makeStyles({
   root: {
-    marginTop: 20,
+    position: "fixed",
+    overflow: "hidden",
+    bottom: 0,
+    backgroundColor: "salmon",
   },
 });
 
-function NavbarFooter(props) {
+function Navbar() {
   const classes = useStyles();
+
   const [value, setValue] = React.useState(0);
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
-    <BottomNavigation
-      style={{ backgroundColor: "salmon" }}
-      // setting up the size for mobile
-      maxWidth="xs"
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-      showLabels
-      className={classes.root}
-    >
-      {/* the emojis are imported above */}
-
-      <BottomNavigationAction label="Tips" icon={<EmojiObjectsIcon />} />
-      <BottomNavigationAction label="Recipes" icon={<RestaurantIcon />} />
-      <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-      <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="Account" icon={<AccountCircleIcon />} />
-    </BottomNavigation>
+    <Router>
+      <Tabs
+        className={classes.root}
+        value={value}
+        onChange={handleChange}
+        variant="fullWidth"
+        indicatorColor="secondary"
+        textColor="secondary"
+        aria-label="icon label tabs example"
+      >
+        <Tab
+          to="/"
+          component={Link}
+          value={"/"}
+          icon={<HomeIcon />}
+          label="Home"
+        />
+        <Tab
+          to="/Tipspage"
+          component={Link}
+          value={"TipsPage"}
+          icon={<EmojiObjectsIcon />}
+          label="Tips"
+        />
+        <Tab
+          to="/Favourite"
+          component={Link}
+          value={"Favourite"}
+          icon={<FavoriteIcon />}
+          label="Favorite"
+        />
+        <Tab
+          to="/RecipeFilterPage"
+          component={Link}
+          value={"RecipeFilterPage"}
+          icon={<RestaurantIcon />}
+          label="Recipes"
+        />
+        <Tab
+          to="/Account"
+          component={Link}
+          value={"Account"}
+          icon={<AccountCircleIcon />}
+          label="Account"
+        />
+      </Tabs>
+      <Switch>
+        <Route exact path="/">
+          <FrontPage />
+        </Route>
+        <Route path="/Tipspage">
+          <TipsPage />
+        </Route>
+        <Route path="/Favourite">
+          <Favourite />
+        </Route>
+        <Route path="/RecipeFilterPage">
+          <RecipeFilterPage />
+        </Route>
+        <Route path="/Account">
+          <Account />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
-// imported in the app.js folder
-export default NavbarFooter;
+export default Navbar;
