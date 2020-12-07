@@ -53,14 +53,11 @@ function FrontPage() {
       <ButtonGroup orientation="horizontal" className={classes.takkar}>
         {/* Displaying the Takki function from the Button.js folder */}
         {/* Categories is the function above, it displays the diet that is in the () */}
-        <Takki click={() => categories("Vegan")} text="Vegan"></Takki>
-        <Takki click={() => categories("Ketogenic")} text="Keto"></Takki>
-        <Takki click={() => categories("Vegetarian")} text="Vegetarian"></Takki>
-        <Takki
-          click={() => categories("Pescetarian")}
-          text="Pescetarian"
-        ></Takki>
-        <Takki click={() => categories("Paleo")} text="Paleo"></Takki>
+        <Takki diet="vegan" text="Vegan"></Takki>
+          <Takki diet="ketogenic" text="Keto"></Takki>
+          <Takki diet="vegetarian" text="Vegetarian"></Takki>
+          <Takki diet="pescetarian" text="Pescetarian"></Takki>
+          <Takki diet="paleo" text="Paleo"></Takki>
       </ButtonGroup>
       <Typography variant="h6" component="p" className={classes.bodytext}>
         Recipie of the Day

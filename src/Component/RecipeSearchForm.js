@@ -78,19 +78,21 @@ class RecipeSearchForm extends Component {
   }
 
   componentDidMount() {
-    this.getApiRecipes()
-      // convert the API response to an object
-      .then((response) => response.json())
-      .then((data) => {
-        // update the recipe list with the API data
-        console.log("Got response from server");
-        console.log(data);
-        updateRecipes(data.results);          
-      }) 
-      .catch((err) => {
-        console.log("Error!");
-        console.log(err);
-      });
+    const params = new URLSearchParams(window.location.search);
+  
+    const query = params.get("query") || "";
+    let ingredients = params.get("ingredients") || "";
+    ingredients = ingredients.split(",");
+    ingredients = ingredients.filter((ingredient) => ingredient);
+    const diet = params.get("diet") || "";
+    const maxReadyTime = params.get("maxReadyTime") || "";
+
+    this.setState({
+      query,
+      ingredients,
+      diet,
+      maxReadyTime,
+    });
   }
 
   componentDidUpdate() {

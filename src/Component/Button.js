@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { white } from "@material-ui/core/colors";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   buttons: {
@@ -28,6 +29,10 @@ function Takki(props) {
       <Button onClick={props.click} className={classes.buttons}>
         {props.text}
       </Button>
+    
+      <Link to={`/RecipesFilterPage?diet=${props.diet}`}>
+        <Button className={classes.buttons}>{props.text}</Button>
+      </Link>
     </>
   );
 }
