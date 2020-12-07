@@ -13,7 +13,7 @@ import { salmon, white } from "@material-ui/core/colors";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import TipsPage from "../Pages/TipsPage";
 import FrontPage from "../Pages/FrontPage";
-import Favourite from "../Pages/FavouritePage";
+import FavouritePage from "../Pages/FavouritePage";
 import Account from "../Pages/Account";
 
 const useStyles = makeStyles({
@@ -59,7 +59,7 @@ function Navbar() {
           label="Tips"
         />
         <Tab
-          to="/Favourite"
+          to="/FavouritePage"
           component={Link}
           value={"Favourite"}
           icon={<FavoriteIcon />}
@@ -87,8 +87,8 @@ function Navbar() {
         <Route path="/Tipspage">
           <TipsPage />
         </Route>
-        <Route path="/Favourite">
-          <Favourite />
+        <Route path="/FavouritePage">
+          <FavouritePage />
         </Route>
         <Route path="/RecipesFilterPage">
           <RecipesFilterPage />
