@@ -7,14 +7,33 @@ import Typography from "@material-ui/core/Typography";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { GridList } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
 // import { Link } from "react-router-dom";
 import RandomFactGenerator from "../Component/RandomFactGenerator";
 // import TabScrollButton from "@material-ui/core/TabScrollButton";
 
+const useStyles = makeStyles(() => ({
+  root: {
+    backgroundColor: "#D0D8D8",
+    height: "100%",
+  },
+  bodytext: {
+    padding: 20,
+    fontWeight: "bold",
+  },
+}));
+
 function FrontPage() {
+  const classes = useStyles();
   const [recipes, setRecipes] = useState([]);
   async function categories(diet) {
     const API_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&diet=${diet}`;
+
+    // -- Spyrja Smára hvort þetta sé rétt til að sýna time í recipe card
+    // if (recipes.maxReadyTime) {
+    //   API_URL += `&maxReadyTime=${props.maxReadyTime}`;
+    // }
+
     const response = await fetch(API_URL);
     const data = await response.json();
     setRecipes(data.results);
@@ -24,46 +43,41 @@ function FrontPage() {
 
   return (
     // sx is about the same size as mobile -this is mobile first approach
-    <div>
-      <Typography variant="h3" component="h1">
-        Þetta er front page!!!!!!
-      </Typography>
-
-      <RandomFactGenerator />
-
-      <Typography variant="h6" component="p">
+    <div className={classes.root}>
+      <Typography variant="h6" component="p" className={classes.bodytext}>
         Categories
       </Typography>
 
       {/* <Link to="/recipes?diet=ketogenic">Keto</Link> */}
 
-      <GridList cols={1}>
-        <ButtonGroup orientation="horizontal" style={{ marginBottom: 5 }}>
-          {/* Displaying the Takki function from the Button.js folder */}
-          {/* Categories is the function above, it displays the diet that is in the () */}
-          <Takki click={() => categories("Vegan")} text="Vegan"></Takki>
-          <Takki click={() => categories("Ketogenic")} text="Keto"></Takki>
-          <Takki
-            click={() => categories("Vegetarian")}
-            text="Vegetarian"
-          ></Takki>
-          <Takki
-            click={() => categories("Pescetarian")}
-            text="Pescetarian"
-          ></Takki>
-          <Takki click={() => categories("Paleo")} text="Paleo"></Takki>
-        </ButtonGroup>
-      </GridList>
+      <ButtonGroup orientation="horizontal" className={classes.takkar}>
+        {/* Displaying the Takki function from the Button.js folder */}
+        {/* Categories is the function above, it displays the diet that is in the () */}
+        <Takki click={() => categories("Vegan")} text="Vegan"></Takki>
+        <Takki click={() => categories("Ketogenic")} text="Keto"></Takki>
+        <Takki click={() => categories("Vegetarian")} text="Vegetarian"></Takki>
+        <Takki
+          click={() => categories("Pescetarian")}
+          text="Pescetarian"
+        ></Takki>
+        <Takki click={() => categories("Paleo")} text="Paleo"></Takki>
+      </ButtonGroup>
+      <Typography variant="h6" component="p" className={classes.bodytext}>
+        Recipie of the Day
+      </Typography>
+      <Typography variant="h6" component="p" className={classes.bodytext}>
+        Random food fact of the Day
+      </Typography>
+      <RandomFactGenerator />
       {recipes.map((recipe) => {
         return (
-          <Grid container spacing={3}>
-            <Grid item s={6}>
-              <RecipeCard
-                title={recipe.title}
-                image={recipe.image}
-              ></RecipeCard>
-            </Grid>
-          </Grid>
+          <>
+            <RecipeCard
+              title={recipe.title}
+              image={recipe.image}
+              // readyInMinutes={time.readyInMinutes}
+            ></RecipeCard>
+          </>
         );
       })}
     </div>

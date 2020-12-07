@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     position: "fixed",
     overflow: "hidden",
     bottom: 0,
-    backgroundColor: "salmon",
+    backgroundColor: "#EAF2F2",
   },
 });
 
