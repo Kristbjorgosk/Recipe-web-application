@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,9 +25,9 @@ function Takki(props) {
     <div className={classes.root}>
       {/* the Button is imported above from MUI, the value for props is set in app.js */}
 
-      <Button onClick={props.click} className={classes.buttons}>
-        {props.text}
-      </Button>
+      <Link to={`/RecipesFilterPage?diet=${props.diet}`}>
+        <Button className={classes.buttons}>{props.text}</Button>
+      </Link>
     </div>
   );
 }
