@@ -2,16 +2,10 @@ import React, { useState } from "react";
 import { apiKey } from "../Api";
 import "fontsource-roboto";
 import Takki from "../Component/Button";
-import RecipeCard from "../Component/RecipeCard";
 import Typography from "@material-ui/core/Typography";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import { GridList } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-// import { Link } from "react-router-dom";
 import RandomFactGenerator from "../Component/RandomFactGenerator";
-// import TabScrollButton from "@material-ui/core/TabScrollButton";
-import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles(() => ({
   // root: {

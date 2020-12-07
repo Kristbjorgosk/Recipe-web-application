@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
-import AddIcon from "@material-ui/icons/Add";
 import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
-import { salmon } from "@material-ui/core/colors";
-import SvgIcon from "@material-ui/core/SvgIcon";
 import logo from "../Logo/zenpotlogo.svg";
 
 // setting up the styles, in this case, just for the "logo" - will change the logo once we have one
@@ -49,7 +44,7 @@ function Header(props) {
 
       {/* Toolbar keeps the logo / image */}
       <Toolbar className={classes.header}>
-        <img src={logo}></img>
+        <img src={logo} alt=""></img>
 
         {/* the text that is inside the header */}
         <Typography

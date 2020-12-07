@@ -44,18 +44,4 @@ class RecipeList extends Component {
   }
 }
 
-{
-  /* {recipes.map((recipe) => {
-        return (
-          <Paper>
-            <RecipeCard
-              title={recipe.title}
-              image={recipe.image}
-              // readyInMinutes={time.readyInMinutes}
-            ></RecipeCard>
-          </Paper>
-        );
-      })} */
-}
-
 export { RecipeList, updateRecipes };
