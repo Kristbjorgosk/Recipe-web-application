@@ -18,11 +18,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "hidden",
+    direction: "colums",
   },
-  gridList: {
-    width: 180,
-    height: 200,
-  },
+
   media: {
     height: 0,
     paddingTop: "56.25%", // 16:9
@@ -43,26 +41,33 @@ function RecipeCard(props) {
   };
 
   return (
-    <Card className={classes.root}>
-      <CardMedia className={classes.media} image={props.image} />
-      <CardContent>
-        <Typography gutterBottom variant="body1" component="h1">
-          {props.title}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Here comes a text about the recipe
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Time / Servings: {""}
-        </Typography>
+    <Grid container spacing={2} className={classes.root}>
+      <Grid item xs={12} sm={6} md={3} className={classes.root}>
+        <Card className={classes.root}>
+          <CardMedia className={classes.media} image={props.image} />
+          <CardContent>
+            <Typography gutterBottom variant="body1" component="h1">
+              {props.title}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {/* Here comes a text about the recipe */}
+            </Typography>
+          </CardContent>
+          <CardActions disableSpacing>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {props.readyInMinutes} Time / Serving
+            </Typography>
 
-        <IconButton aria-label="add to favorites" className={classes.favorite}>
-          <FavoriteIcon />
-        </IconButton>
-      </CardActions>
-    </Card>
+            <IconButton
+              aria-label="add to favorites"
+              className={classes.favorite}
+            >
+              <FavoriteIcon />
+            </IconButton>
+          </CardActions>
+        </Card>
+      </Grid>
+    </Grid>
   );
 }
 

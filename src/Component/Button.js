@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import { white } from "@material-ui/core/colors";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
+const useStyles = makeStyles(() => ({
+  buttons: {
+    background: " #3898A5 ",
+    color: "white",
+    margin: 5,
+    borderRadius: 6,
+    height: 50,
+    fontSize: 16,
+    // display: "Flex",
+    // flexWrap: "wrap",
     justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: theme.palette.background.paper,
-  },
-  gridList: {
-    flexWrap: "nowrap",
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-    transform: "translateZ(0)",
+    // overflow: "hidden",
   },
 }));
 
@@ -22,13 +23,20 @@ function Takki(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <>
       {/* the Button is imported above from MUI, the value for props is set in app.js */}
 
-      <Link to={`/RecipesFilterPage?diet=${props.diet}`}>
-        <Button className={classes.buttons}>{props.text}</Button>
+      {/* <Button onClick={props.click} className={classes.buttons}>
+        {props.text}
+      </Button> */}
+
+      <Link
+        className={classes.buttons}
+        to={`/RecipesFilterPage?diet=${props.diet}`}
+      >
+        <Button>{props.text} </Button>
       </Link>
-    </div>
+    </>
   );
 }
 
