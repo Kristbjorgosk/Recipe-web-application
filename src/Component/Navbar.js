@@ -15,6 +15,7 @@ import TipsPage from "../Pages/TipsPage";
 import FrontPage from "../Pages/FrontPage";
 import FavouritePage from "../Pages/FavouritePage";
 import Account from "../Pages/Account";
+import RecipeDetailPage from "../Pages/RecipeDetailPage";
 
 const useStyles = makeStyles({
   root: {
@@ -95,6 +96,9 @@ function Navbar() {
         </Route>
         <Route path="/Account">
           <Account />
+        </Route>
+        <Route path="/:id">
+          <RecipeDetailPage />
         </Route>
       </Switch>
     </Router>
