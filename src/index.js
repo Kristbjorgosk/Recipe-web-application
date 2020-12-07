@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import App from "./App";
 import "fontsource-roboto";
-import Navbar from "./Component/Navbar";
 
 // import reportWebVitals from "./reportWebVitals";
 

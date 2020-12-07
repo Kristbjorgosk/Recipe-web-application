@@ -4,8 +4,6 @@ import SearchByIngredients from "./SearchByIngredients";
 import SearchByDiet from "./SearchByDiet";
 import SearchByMinutes from "./SearchByMinutes";
 import IngredientTagList from "./IngredientTagList";
-// import { apiKey } from "../Api";
-// import { updateRecipes } from "./RecipeList";
 
 class RecipeSearchForm extends Component {
   // constructor(props) {
