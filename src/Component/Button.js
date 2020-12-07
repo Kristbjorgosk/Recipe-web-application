@@ -26,12 +26,15 @@ function Takki(props) {
     <>
       {/* the Button is imported above from MUI, the value for props is set in app.js */}
 
-      <Button onClick={props.click} className={classes.buttons}>
+      {/* <Button onClick={props.click} className={classes.buttons}>
         {props.text}
-      </Button>
-    
-      <Link to={`/RecipesFilterPage?diet=${props.diet}`}>
-        <Button className={classes.buttons}>{props.text}</Button>
+      </Button> */}
+
+      <Link
+        className={classes.buttons}
+        to={`/RecipesFilterPage?diet=${props.diet}`}
+      >
+        <Button>{props.text} </Button>
       </Link>
     </>
   );

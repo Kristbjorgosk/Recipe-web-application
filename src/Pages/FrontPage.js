@@ -16,6 +16,7 @@ const useStyles = makeStyles(() => ({
   root: {
     backgroundColor: "#D0D8D8",
     height: "100%",
+    color: "#161F22",
   },
   bodytext: {
     padding: 20,
@@ -54,10 +55,10 @@ function FrontPage() {
         {/* Displaying the Takki function from the Button.js folder */}
         {/* Categories is the function above, it displays the diet that is in the () */}
         <Takki diet="vegan" text="Vegan"></Takki>
-          <Takki diet="ketogenic" text="Keto"></Takki>
-          <Takki diet="vegetarian" text="Vegetarian"></Takki>
-          <Takki diet="pescetarian" text="Pescetarian"></Takki>
-          <Takki diet="paleo" text="Paleo"></Takki>
+        <Takki diet="ketogenic" text="Keto"></Takki>
+        <Takki diet="vegetarian" text="Vegetarian"></Takki>
+        <Takki diet="pescetarian" text="Pescetarian"></Takki>
+        <Takki diet="paleo" text="Paleo"></Takki>
       </ButtonGroup>
       <Typography variant="h6" component="p" className={classes.bodytext}>
         Recipie of the Day
