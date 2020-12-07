@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import { salmon } from "@material-ui/core/colors";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import logo from "../Logo/zenpotlogo.svg";
 
 // setting up the styles, in this case, just for the "logo" - will change the logo once we have one
 const useStyles = makeStyles((theme) => ({
@@ -32,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
     padding: 20,
     backgroundColor: "#EAF2F2",
     position: "relative",
+    zIndex: -1,
+    position: "relative",
   },
 }));
 
@@ -43,11 +46,10 @@ function Header(props) {
       <CssBaseline />
 
       {/* AppBar is the header itself */}
-      <AppBar className={classes.header}>
-        {/* Toolbar keeps the logo / image */}
-        <Toolbar>
-          <SvgIcon className={classes.logo}></SvgIcon>
-        </Toolbar>
+
+      {/* Toolbar keeps the logo / image */}
+      <Toolbar className={classes.header}>
+        <img src={logo}></img>
 
         {/* the text that is inside the header */}
         <Typography
@@ -61,7 +63,7 @@ function Header(props) {
         <Typography variant="h6" component="p" className={classes.text}>
           Discover recipes, get motivated and start cooking!
         </Typography>
-      </AppBar>
+      </Toolbar>
     </React.Fragment>
   );
 }

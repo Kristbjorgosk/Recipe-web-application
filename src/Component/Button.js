@@ -12,6 +12,7 @@ const useStyles = makeStyles(() => ({
     borderRadius: 6,
     height: 50,
     fontSize: 16,
+    maxWidth: 110,
     // display: "Flex",
     // flexWrap: "wrap",
     justifyContent: "space-around",

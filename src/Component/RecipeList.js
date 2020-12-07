@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import RecipeCard from "./RecipeCard";
+import Grid from "@material-ui/core/Grid";
 
 // function that can be called by sibling components to update the
 // RecipeList component's state
@@ -18,11 +19,15 @@ class RecipeList extends Component {
   render() {
     return (
       <div>
-        {this.state.recipes.map((recipe) => {
-          return (
-            <RecipeCard title={recipe.title} image={recipe.image} />
-          );
-        })}
+        <Grid container spacing={2}>
+          {this.props.recipes.map((recipe) => {
+            return (
+              <Grid item xs={12} sm={6} md={3}>
+                <RecipeCard title={recipe.title} image={recipe.image} />
+              </Grid>
+            );
+          })}
+        </Grid>
       </div>
     );
   }
@@ -33,7 +38,18 @@ class RecipeList extends Component {
   }
 }
 
-export {
-  RecipeList,
-  updateRecipes,
-};
+{
+  /* {recipes.map((recipe) => {
+        return (
+          <Paper>
+            <RecipeCard
+              title={recipe.title}
+              image={recipe.image}
+              // readyInMinutes={time.readyInMinutes}
+            ></RecipeCard>
+          </Paper>
+        );
+      })} */
+}
+
+export { RecipeList, updateRecipes };
