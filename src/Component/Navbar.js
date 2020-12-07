@@ -1,5 +1,4 @@
 import React from "react";
-import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -9,7 +8,6 @@ import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import HomeIcon from "@material-ui/icons/Home";
 import RestaurantIcon from "@material-ui/icons/Restaurant";
 import RecipesFilterPage from "../Pages/RecipesFilterPage";
-import { salmon, white } from "@material-ui/core/colors";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import TipsPage from "../Pages/TipsPage";
 import FrontPage from "../Pages/FrontPage";
