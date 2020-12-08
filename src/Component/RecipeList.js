@@ -17,13 +17,19 @@ class RecipeList extends Component {
   }
 
   render() {
+    console.log(this.props.maxReadyTime);
     return (
       <div>
         <Grid container spacing={2}>
           {this.props.recipes.map((recipe) => {
             return (
               <Grid item xs={12} sm={6} md={3}>
-                <RecipeCard title={recipe.title} image={recipe.image} id={recipe.id} />
+                <RecipeCard
+                  title={recipe.title}
+                  image={recipe.image}
+                  maxReadyTime={this.props.maxReadyTime}
+                  id={recipe.id}
+                />
               </Grid>
             );
           })}

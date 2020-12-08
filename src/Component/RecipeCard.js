@@ -8,17 +8,15 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteButton from "./FavoriteButton";
+import { Link } from "react-router-dom";
 
+import Grid from "@material-ui/core/Grid";
+import GridList from "@material-ui/core/GridList";
+import RecipeFilterPage from "../Pages/RecipesFilterPage";
+import RecipeSearchForm from "./RecipeSearchForm";
+import RecipeDetailPage from "../Pages/RecipeDetailPage";
 
 const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   display: "flex",
-  //   flexWrap: "wrap",
-  //   justifyContent: "space-around",
-  //   overflow: "hidden",
-  //   direction: "colums",
-  // },
-
   media: {
     width: 300,
     height: 300,
@@ -44,29 +42,33 @@ function RecipeCard(props) {
   };
 
   return (
-    <Card className={classes.card}>
-      <CardMedia className={classes.media} image={props.image} />
-      <CardContent>
-        <Typography gutterBottom variant="body1" component="h1">
-          {props.title}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {/* Here comes a text about the recipe */}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.readyInMinutes} Time / Serving
-        </Typography>
+    <Link to={`/${props.id}`}>
+      <Card className={classes.card}>
+        <CardMedia className={classes.media} image={props.image} />
+        <CardContent>
+          <Typography gutterBottom variant="body1" component="h1">
+            {props.title}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {/* Here comes a text about the recipe */}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {props.maxReadyTime}
+            Time / Serving
+          </Typography>
 
-        {/* <IconButton aria-label="add to favorites" className={classes.favorite}>
-          <FavoriteIcon />
-        </IconButton> */}
-
-        <FavoriteButton recipeId={props.id} />
-
-      </CardActions>
-    </Card>
+          <IconButton
+            aria-label="add to favorites"
+            className={classes.favorite}
+          >
+            <FavoriteIcon />
+          </IconButton>
+            <FavoriteButton recipeId={props.id} />
+        </CardActions>
+      </Card>
+    </Link>
   );
 }
 

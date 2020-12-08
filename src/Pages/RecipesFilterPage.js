@@ -82,7 +82,7 @@ function RecipesFilterPage() {
         setMaxReadyTime={setMaxReadyTime}
         ingredients={ingredients}
       />
-      <RecipeList recipes={recipes} />
+      <RecipeList recipes={recipes} maxReadyTime={maxReadyTime} />
     </>
   );
 }

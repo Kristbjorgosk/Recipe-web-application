@@ -6,10 +6,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import RestaurantIcon from "@material-ui/icons/Restaurant";
+
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import HomeIcon from "@material-ui/icons/Home";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+
+import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
+
 
 const useStyles = makeStyles({
   root: {
