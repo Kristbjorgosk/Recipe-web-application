@@ -8,6 +8,8 @@ import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteButton from "./FavoriteButton";
+
 import Grid from "@material-ui/core/Grid";
 import GridList from "@material-ui/core/GridList";
 import RecipeFilterPage from "../Pages/RecipesFilterPage";
@@ -63,6 +65,7 @@ function RecipeCard(props) {
           >
             <FavoriteIcon />
           </IconButton>
+            <FavoriteButton recipeId={props.id} />
         </CardActions>
       </Card>
     </Link>

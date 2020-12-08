@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { makeStyles } from "@material-ui/core/styles";
 import RandomFactGenerator from "../Component/RandomFactGenerator";
+import RandomRecipeGenerator from "../Component/RandomRecipeGenerator";
 
 const useStyles = makeStyles(() => ({
   // root: {
@@ -37,7 +38,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 function FrontPage() {
-  const classes = useStyles();
+  const classes = useStyles();  
   const [recipes, setRecipes] = useState([]);
   async function categories(diet) {
     const API_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&diet=${diet}`;
@@ -73,11 +74,15 @@ function FrontPage() {
         <Takki diet="paleo" text="Paleo"></Takki>
       </ButtonGroup>
       <Typography variant="h6" component="p" className={classes.bodytext}>
-        Recipie of the Day
+        Recipe of the moment
       </Typography>
+
+      <RandomRecipeGenerator />
+
       <Typography variant="h6" component="p" className={classes.bodytext}>
         Random food fact of the Day
       </Typography>
+      
       <RandomFactGenerator />
     </div>
   );
