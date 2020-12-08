@@ -12,21 +12,36 @@ import {
 } from "react-router-dom";
 
 function RecipeDetailPage(props) {
+  const [info, setInfo] = useState();
+
   const params = useParams();
   const URL = `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${apiKey}`;
 
   useEffect(() => {
     fetch(URL)
       .then((r) => r.json())
-      .then((r) => {
-        console.log(r);
+      .then((recipeDetails) => {
+        setInfo(recipeDetails);
+        console.log(recipeDetails);
       });
-  });
+  }, []);
+
+  // To check if info is not defined
+  // if (!info) {
+  //   return null;
+  // }
+
   return (
     <div>
-      <Typography gutterBottom variant="body1" component="h1">
-        Þetta er Recipe Detail Síðan {props.image}
-      </Typography>
+      {/* Show if info is defined */}
+      {!!info && (
+        <>
+          <Typography gutterBottom variant="body1" component="h1">
+            Þetta er Recipe Detail Síðan
+          </Typography>
+          <img src={info.image} />
+        </>
+      )}
       Þetta er url
       {URL}
     </div>
