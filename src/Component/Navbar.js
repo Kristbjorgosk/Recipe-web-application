@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import RestaurantIcon from "@material-ui/icons/Restaurant";
 
@@ -70,13 +69,6 @@ function Navbar() {
         value={"RecipesFilterPage"}
         icon={<RestaurantIcon />}
         label="Recipes"
-      />
-      <Tab
-        to="/Account"
-        component={Link}
-        value={"Account"}
-        icon={<AccountCircleIcon />}
-        label="Account"
       />
     </Tabs>
   );

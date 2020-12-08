@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#EAF2F2",
     position: "relative",
     zIndex: -1,
-    position: "relative",
   },
 }));
 
