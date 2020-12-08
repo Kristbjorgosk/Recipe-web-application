@@ -25,6 +25,7 @@ const useStyles = makeStyles(() => ({
   },
   takkar: {
     zIndex: -1,
+    overflow: "auto",
   },
   grid: {
     display: "flex",
