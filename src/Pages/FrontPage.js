@@ -9,22 +9,33 @@ import RandomFactGenerator from "../Component/RandomFactGenerator";
 import RandomRecipeGenerator from "../Component/RandomRecipeGenerator";
 
 const useStyles = makeStyles(() => ({
-  // root: {
-  //   backgroundColor: "#D0D8D8",
-  //   height: "100%",
-  //   color: "#161F22",
-  //   zIndex: 2,
-  //   position: "relative",
-  // },
-
   root: {
-    flexGrow: 1,
+    backgroundColor: "#D0D8D8",
+    height: "100%",
+    color: "#161F22",
+    // zIndex: 2,
+    position: "relative",
+    paddingLeft: 5,
+    paddingBottom: 20,
   },
-  bodytext: {
+
+  bodyheaddline: {
     padding: 20,
     fontWeight: "bold",
   },
+
+  headerHeadline: {
+    color: "#161F22",
+    fontSize: 49,
+    paddingLeft: 15,
+  },
+  text: {
+    color: "#161F22",
+    fontSize: 22,
+    paddingLeft: 15,
+  },
   takkar: {
+    paddingLeft: 5,
     zIndex: -1,
     overflow: "auto",
   },
@@ -38,31 +49,33 @@ const useStyles = makeStyles(() => ({
 }));
 
 function FrontPage() {
-  const classes = useStyles();  
+  const classes = useStyles();
   const [recipes, setRecipes] = useState([]);
   async function categories(diet) {
     const API_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&diet=${diet}`;
-
-    // -- Spyrja Smára hvort þetta sé rétt til að sýna time í recipe card
-    // if (recipes.maxReadyTime) {
-    //   API_URL += `&maxReadyTime=${props.maxReadyTime}`;
-    // }
 
     const response = await fetch(API_URL);
     const data = await response.json();
     setRecipes(data.results);
     console.log(data.results);
   }
-  // function to get different diets and it is trickered when clicking the button below in return section
 
   return (
-    // sx is about the same size as mobile -this is mobile first approach
     <div className={classes.root}>
-      <Typography variant="h6" component="p" className={classes.bodytext}>
+      <Typography
+        className={classes.headerHeadline}
+        gutterBottom
+        variant="h3"
+        component="h1"
+      >
+        Cooking made simple!
+      </Typography>
+      <Typography variant="h6" component="p" className={classes.text}>
+        Discover recipes, get motivated and start cooking!
+      </Typography>
+      <Typography variant="h6" component="p" className={classes.bodyheaddline}>
         Categories
       </Typography>
-
-      {/* <Link to="/recipes?diet=ketogenic">Keto</Link> */}
 
       <ButtonGroup orientation="horizontal" className={classes.takkar}>
         {/* Displaying the Takki function from the Button.js folder */}
@@ -73,16 +86,16 @@ function FrontPage() {
         <Takki diet="pescetarian" text="Pescetarian"></Takki>
         <Takki diet="paleo" text="Paleo"></Takki>
       </ButtonGroup>
-      <Typography variant="h6" component="p" className={classes.bodytext}>
-        Recipe of the moment
+      <Typography variant="h6" component="p" className={classes.bodyheaddline}>
+        Recipe of the day
       </Typography>
 
       <RandomRecipeGenerator />
 
-      <Typography variant="h6" component="p" className={classes.bodytext}>
+      <Typography variant="h6" component="p" className={classes.bodyheaddline}>
         Random food fact of the Day
       </Typography>
-      
+
       <RandomFactGenerator />
     </div>
   );

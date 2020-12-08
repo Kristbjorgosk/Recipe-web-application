@@ -1,72 +1,95 @@
-import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { apiKey } from "../Api";
+import { BrowserRouter as Router, Link, useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import FavoriteButton from "./FavoriteButton";
-import { red } from "@material-ui/core/colors";
-
-import Grid from "@material-ui/core/Grid";
-import GridList from "@material-ui/core/GridList";
-import RecipeFilterPage from "../Pages/RecipesFilterPage";
-import RecipeSearchForm from "./RecipeSearchForm";
-import RecipeDetailPage from "../Pages/RecipeDetailPage";
 
 const useStyles = makeStyles((theme) => ({
+  recipiecard: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   media: {
-    width: 300,
-    height: 300,
+    height: 310,
+    width: 350,
   },
   card: {
-    width: 200,
+    width: 350,
+    height: 500,
+    borderRadius: 20,
+    paddingBottom: 15,
   },
-  favorite: {
-    height: 40,
-    width: 40,
-    color: "#202C30",
-    zIndex: -1,
-    position: "relative",
+
+  text: {
+    textDecoration: "none",
+    fontSize: 25,
   },
 }));
 
 function RecipeCard(props) {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState();
+
+  const params = useParams();
+  const URL = `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${apiKey}`;
+
+  useEffect(() => {
+    fetch(URL)
+      .then((r) => r.json())
+      .then((recipecard) => {
+        setExpanded(recipecard);
+        console.log(recipecard);
+      });
+  }, []);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  const classes = useStyles();
   return (
-    <Link to={`/${props.id}`}>
-      <Card className={classes.card}>
-        <CardMedia className={classes.media} image={props.image} />
+    <Link to={`/${props.id}`} style={{ textDecoration: "none" }}>
+      <div className={classes.recipiecard}>
+        <Card className={classes.card}>
+          <CardMedia className={classes.media} image={props.image} />
 
-        <CardContent>
-          <Typography gutterBottom variant="body1" component="h1">
-            {props.title}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {/* Here comes a text about the recipe */}
-          </Typography>
-        </CardContent>
+          <CardContent>
+            <Typography
+              className={classes.text}
+              gutterBottom
+              variant="body1"
+              component="h1"
+            >
+              {props.title}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {/* Here comes a text about the recipe */}
+            </Typography>
+          </CardContent>
 
-        <CardActions disableSpacing>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.maxReadyTime}
-            Time / Serving
-          </Typography>
+          <CardActions disableSpacing>
+            <Typography
+              className={classes.text}
+              variant="body2"
+              color="textSecondary"
+              component="p"
+            >
+              Time
+            </Typography>
 
-          <FavoriteButton
-            aria-label="add to favorites"
-            className={classes.favorite}
-            recipeId={props.id}
-          />
-        </CardActions>
-      </Card>
+            <FavoriteButton
+              aria-label="add to favorites"
+              className={classes.favorite}
+              recipeId={props.id}
+            />
+          </CardActions>
+        </Card>
+      </div>
     </Link>
   );
 }

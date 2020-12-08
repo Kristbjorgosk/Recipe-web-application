@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { fungeneratorsApiKey } from "../Api"
+import { fungeneratorsApiKey } from "../Api";
+
+import Typography from "@material-ui/core/Typography";
 
 class RandomFactGenerator extends Component {
   constructor(props) {
@@ -8,7 +10,7 @@ class RandomFactGenerator extends Component {
       fact: "",
     };
   }
-  
+
   componentDidMount() {
     const headers = {
       accept: "application/json",
@@ -29,14 +31,18 @@ class RandomFactGenerator extends Component {
       "Beef",
     ];
 
-    const subcategory = subcategories[Math.floor(Math.random() * subcategories.length)];
+    const subcategory =
+      subcategories[Math.floor(Math.random() * subcategories.length)];
 
-    fetch(`http://api.fungenerators.com/fact/random?category=food&subcategory=${subcategory}`, { headers })
+    fetch(
+      `http://api.fungenerators.com/fact/random?category=food&subcategory=${subcategory}`,
+      { headers }
+    )
       .then((response) => response.json())
       .then((data) => {
         const fact = data.contents.fact;
         this.setState({ fact });
-      }) 
+      })
       .catch((err) => {
         console.log("Error!");
         console.log(err);
@@ -45,7 +51,15 @@ class RandomFactGenerator extends Component {
 
   render() {
     return (
-      <p>{this.state.fact}</p>
+      <>
+        <Typography
+          style={{ paddingLeft: 15, paddingRight: 15 }}
+          variant="body2"
+          component="p"
+        >
+          {this.state.fact}
+        </Typography>
+      </>
     );
   }
 }

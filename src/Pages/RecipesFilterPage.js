@@ -2,7 +2,26 @@ import React, { useEffect } from "react";
 import RecipeSearchForm from "../Component/RecipeSearchForm";
 import { RecipeList } from "../Component/RecipeList";
 import { apiKey } from "../Api";
+import Typography from "@material-ui/core/Typography";
 import "fontsource-roboto";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(() => ({
+  headerHeadline: {
+    color: "#161F22",
+    fontSize: 49,
+    paddingLeft: 15,
+  },
+  root: {
+    backgroundColor: "#D0D8D8",
+    height: "100%",
+    color: "#161F22",
+    // zIndex: 2,
+    position: "relative",
+    paddingLeft: 5,
+    paddingBottom: 20,
+  },
+}));
 
 function RecipesFilterPage() {
   const [query, setQuery] = React.useState("");
@@ -10,6 +29,8 @@ function RecipesFilterPage() {
   const [diet, setDiet] = React.useState("");
   const [maxReadyTime, setMaxReadyTime] = React.useState("");
   const [recipes, setRecipes] = React.useState([]);
+
+  const classes = useStyles();
 
   const getApiRecipes = () => {
     let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`;
@@ -74,7 +95,10 @@ function RecipesFilterPage() {
   );
 
   return (
-    <>
+    <div className={classes.root}>
+      <Typography variant="h6" component="p" className={classes.headerHeadline}>
+        Recipes
+      </Typography>
       <RecipeSearchForm
         setQuery={setQuery}
         setIngredients={setIngredients}
@@ -83,7 +107,7 @@ function RecipesFilterPage() {
         ingredients={ingredients}
       />
       <RecipeList recipes={recipes} maxReadyTime={maxReadyTime} />
-    </>
+    </div>
   );
 }
 
