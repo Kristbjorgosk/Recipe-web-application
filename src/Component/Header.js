@@ -13,8 +13,10 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     right: 0,
     margin: "0 auto",
-    height: 320,
-    width: 320,
+    height: 140,
+    width: 140,
+    marginBottom: 85,
+    marginTop: 100,
   },
   textHeadline: {
     color: "#161F22",
@@ -30,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     zIndex: -1,
     position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "baseline",
+    alignContent: "center",
   },
 }));
 
@@ -44,7 +52,7 @@ function Header(props) {
 
       {/* Toolbar keeps the logo / image */}
       <Toolbar className={classes.header}>
-        <img src={logo} alt=""></img>
+        <img className={classes.logo} src={logo} alt=""></img>
 
         {/* the text that is inside the header */}
         <Typography

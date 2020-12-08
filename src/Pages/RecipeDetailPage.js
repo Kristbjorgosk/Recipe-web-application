@@ -25,7 +25,7 @@ function RecipeDetailPage(props) {
   return (
     <div>
       <Typography gutterBottom variant="body1" component="h1">
-        Þetta er Recipe Detail Síðan
+        Þetta er Recipe Detail Síðan {props.image}
       </Typography>
       Þetta er url
       {URL}

@@ -30,11 +30,8 @@ function Takki(props) {
         {props.text}
       </Button> */}
 
-      <Link
-        className={classes.buttons}
-        to={`/RecipesFilterPage?diet=${props.diet}`}
-      >
-        <Button>{props.text} </Button>
+      <Link to={`/RecipesFilterPage?diet=${props.diet}`}>
+        <Button className={classes.buttons}>{props.text} </Button>
       </Link>
     </>
   );

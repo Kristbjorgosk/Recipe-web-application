@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -7,14 +8,11 @@ import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-<<<<<<< HEAD
 import Grid from "@material-ui/core/Grid";
 import GridList from "@material-ui/core/GridList";
 import RecipeFilterPage from "../Pages/RecipesFilterPage";
 import RecipeSearchForm from "./RecipeSearchForm";
 import RecipeDetailPage from "../Pages/RecipeDetailPage";
-=======
->>>>>>> fbe2f98321071afb806320d378a76ae6cb5ea7a4
 
 const useStyles = makeStyles((theme) => ({
   media: {

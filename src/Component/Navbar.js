@@ -21,6 +21,7 @@ const useStyles = makeStyles({
     overflow: "hidden",
     bottom: 0,
     backgroundColor: "#EAF2F2",
+    zIndex: 2,
   },
 });
 
@@ -57,13 +58,7 @@ function Navbar() {
           icon={<EmojiObjectsIcon />}
           label="Tips"
         />
-        <Tab
-          to="/FavouritePage"
-          component={Link}
-          value={"Favourite"}
-          icon={<FavoriteIcon />}
-          label="Favorite"
-        />
+
         <Tab
           to="/RecipesFilterPage"
           component={Link}
@@ -72,11 +67,11 @@ function Navbar() {
           label="Recipes"
         />
         <Tab
-          to="/Account"
+          to="/FavouritePage"
           component={Link}
-          value={"Account"}
-          icon={<AccountCircleIcon />}
-          label="Account"
+          value={"Favourite"}
+          icon={<FavoriteIcon />}
+          label="Favorite"
         />
       </Tabs>
       <Switch>
@@ -86,15 +81,13 @@ function Navbar() {
         <Route path="/Tipspage">
           <TipsPage />
         </Route>
-        <Route path="/FavouritePage">
-          <FavouritePage />
-        </Route>
         <Route path="/RecipesFilterPage">
           <RecipesFilterPage />
         </Route>
-        <Route path="/Account">
-          <Account />
+        <Route path="/FavouritePage">
+          <FavouritePage />
         </Route>
+
         <Route path="/:id">
           <RecipeDetailPage />
         </Route>
