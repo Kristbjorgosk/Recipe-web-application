@@ -7,6 +7,8 @@ import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteButton from "./FavoriteButton";
+
 
 const useStyles = makeStyles((theme) => ({
   // root: {
@@ -57,9 +59,12 @@ function RecipeCard(props) {
           {props.readyInMinutes} Time / Serving
         </Typography>
 
-        <IconButton aria-label="add to favorites" className={classes.favorite}>
+        {/* <IconButton aria-label="add to favorites" className={classes.favorite}>
           <FavoriteIcon />
-        </IconButton>
+        </IconButton> */}
+
+        <FavoriteButton recipeId={props.id} />
+
       </CardActions>
     </Card>
   );

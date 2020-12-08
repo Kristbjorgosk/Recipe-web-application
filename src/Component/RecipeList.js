@@ -23,7 +23,7 @@ class RecipeList extends Component {
           {this.props.recipes.map((recipe) => {
             return (
               <Grid item xs={12} sm={6} md={3}>
-                <RecipeCard title={recipe.title} image={recipe.image} />
+                <RecipeCard title={recipe.title} image={recipe.image} id={recipe.id} />
               </Grid>
             );
           })}

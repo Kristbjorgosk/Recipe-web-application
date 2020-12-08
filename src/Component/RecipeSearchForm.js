@@ -6,9 +6,6 @@ import SearchByMinutes from "./SearchByMinutes";
 import IngredientTagList from "./IngredientTagList";
 
 class RecipeSearchForm extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   addIngredient = (ingredient) => {
     this.setState({
