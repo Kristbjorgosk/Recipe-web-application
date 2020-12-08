@@ -20,6 +20,7 @@ const useStyles = makeStyles({
     overflow: "hidden",
     bottom: 0,
     backgroundColor: "#EAF2F2",
+    zIndex: 2,
   },
 });
 
