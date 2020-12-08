@@ -10,6 +10,7 @@ import Header from "./Component/Header";
 import Navbar from "./Component/Navbar";
 
 import "./Style/main.css";
+import RecipeDetailPage from "./Pages/RecipeDetailPage";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route path="/RecipesFilterPage">
           <RecipesFilterPage />
+        </Route>
+        <Route path="/:id">
+          <RecipeDetailPage />
         </Route>
       </Switch>
 

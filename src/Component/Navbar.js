@@ -2,23 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
-
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import RestaurantIcon from "@material-ui/icons/Restaurant";
-
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import HomeIcon from "@material-ui/icons/Home";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
-import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
     position: "fixed",
-    overflow: "hidden",
+    overflow: "auto",
     bottom: 0,
+    marginTop: 10,
     backgroundColor: "#EAF2F2",
     zIndex: 2,
   },

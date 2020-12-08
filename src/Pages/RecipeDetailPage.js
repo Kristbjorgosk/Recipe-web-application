@@ -37,9 +37,13 @@ function RecipeDetailPage(props) {
       {!!info && (
         <>
           <Typography gutterBottom variant="body1" component="h1">
-            Þetta er Recipe Detail Síðan
+            {info.title}
           </Typography>
           <img src={info.image} />
+          <Typography> instructions {info.instructions}</Typography>
+          <Typography> Time: {info.readyInMinutes}</Typography>
+          <Typography> Servings: {info.servings}</Typography>
+          {/*        <Typography> Ingreadients {info.extendedIngredients[]}</Typography> */}
         </>
       )}
       Þetta er url

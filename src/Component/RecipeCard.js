@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteButton from "./FavoriteButton";
+import { red } from "@material-ui/core/colors";
 
 import Grid from "@material-ui/core/Grid";
 import GridList from "@material-ui/core/GridList";
@@ -59,13 +60,11 @@ function RecipeCard(props) {
             Time / Serving
           </Typography>
 
-          <IconButton
+          <FavoriteButton
             aria-label="add to favorites"
             className={classes.favorite}
-          >
-            <FavoriteIcon />
-          </IconButton>
-            <FavoriteButton recipeId={props.id} />
+            recipeId={props.id}
+          />
         </CardActions>
       </Card>
     </Link>
