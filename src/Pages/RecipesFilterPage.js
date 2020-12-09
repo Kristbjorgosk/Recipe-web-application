@@ -7,19 +7,24 @@ import "fontsource-roboto";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
-  headerHeadline: {
-    color: "#161F22",
-    fontSize: 49,
-    paddingLeft: 15,
-  },
   root: {
     backgroundColor: "#D0D8D8",
     height: "100%",
     color: "#161F22",
-    // zIndex: 2,
     position: "relative",
     paddingLeft: 5,
-    paddingBottom: 20,
+  },
+  headerHeadline: {
+    fontSize: 49,
+    paddingLeft: 15,
+  },
+  headlineSection: {
+    backgroundColor: "#EAF2F2",
+  },
+  waves: {
+    backgroundColor: "#EAF2F2",
+    display: "flex",
+    alignItems: "flexEnd",
   },
 }));
 
@@ -95,10 +100,24 @@ function RecipesFilterPage() {
   );
 
   return (
-    <div className={classes.root}>
+    <div className={classes.headlineSection}>
       <Typography variant="h6" component="p" className={classes.headerHeadline}>
         Recipes
       </Typography>
+
+      <div className={classes.root}></div>
+
+      <svg
+        className={classes.waves}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
+        <path
+          fill="#D0D8D8"
+          d="M0,128L60,160C120,192,240,256,360,272C480,288,600,256,720,208C840,160,960,96,1080,96C1200,96,1320,160,1380,192L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+        ></path>
+      </svg>
+
       <RecipeSearchForm
         setQuery={setQuery}
         setIngredients={setIngredients}

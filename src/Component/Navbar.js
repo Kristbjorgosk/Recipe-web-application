@@ -14,11 +14,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const useStyles = makeStyles({
   root: {
     position: "sticky",
-    overflow: "auto",
     bottom: 0,
-    marginTop: 10,
     backgroundColor: "#EAF2F2",
-    // zIndex: 2,
     paddingBottom: 8,
   },
 });

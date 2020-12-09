@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
     height: 140,
     width: 140,
-    marginBottom: 85,
+    marginBottom: 45,
     marginTop: 100,
   },
   header: {

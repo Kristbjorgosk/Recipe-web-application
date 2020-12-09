@@ -9,6 +9,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import FavoriteButton from "./FavoriteButton";
+import "fontsource-rufina";
 
 const useStyles = makeStyles((theme) => ({
   recipiecard: {
@@ -27,9 +28,14 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 15,
   },
 
-  text: {
-    textDecoration: "none",
-    fontSize: 25,
+  cardtitile: {
+    fontSize: 22,
+    fontFamily: "rufina",
+  },
+  timeText: {
+    fontSize: 16,
+    fontFamily: "rufina",
+    paddingLeft: 7,
   },
 }));
 
@@ -60,25 +66,16 @@ function RecipeCard(props) {
 
           <CardContent>
             <Typography
-              className={classes.text}
+              className={classes.cardtitile}
               gutterBottom
-              variant="body1"
               component="h1"
             >
               {props.title}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {/* Here comes a text about the recipe */}
-            </Typography>
           </CardContent>
 
           <CardActions disableSpacing>
-            <Typography
-              className={classes.text}
-              variant="body2"
-              color="textSecondary"
-              component="p"
-            >
+            <Typography className={classes.timeText} component="p">
               Time
             </Typography>
 

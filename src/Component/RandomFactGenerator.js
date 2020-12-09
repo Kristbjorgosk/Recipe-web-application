@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { fungeneratorsApiKey } from "../Api";
-
+import "fontsource-quicksand";
 import Typography from "@material-ui/core/Typography";
 
 class RandomFactGenerator extends Component {
@@ -53,7 +53,13 @@ class RandomFactGenerator extends Component {
     return (
       <>
         <Typography
-          style={{ paddingLeft: 15, paddingRight: 15 }}
+          style={{
+            paddingLeft: 18,
+            paddingRight: 15,
+            paddingTop: 10,
+            fontFamily: "quicksand",
+            fontSize: 20,
+          }}
           variant="body2"
           component="p"
         >

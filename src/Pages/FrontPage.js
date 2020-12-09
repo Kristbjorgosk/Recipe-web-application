@@ -7,21 +7,33 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { makeStyles } from "@material-ui/core/styles";
 import RandomFactGenerator from "../Component/RandomFactGenerator";
 import RandomRecipeGenerator from "../Component/RandomRecipeGenerator";
+import "fontsource-quicksand";
 
 const useStyles = makeStyles(() => ({
   root: {
+    fontFamily: "quicksand",
     backgroundColor: "#D0D8D8",
     height: "100%",
     color: "#161F22",
-    // zIndex: 2,
     position: "relative",
     paddingLeft: 5,
     paddingBottom: 20,
+    overflow: "hidder",
+  },
+
+  headerTextSection: {
+    backgroundColor: "#EAF2F2",
+  },
+  waves: {
+    backgroundColor: "#EAF2F2",
+    display: "flex",
+    alignItems: "flexEnd",
   },
 
   bodyheaddline: {
     padding: 20,
     fontWeight: "bold",
+    marginTop: 10,
   },
 
   headerHeadline: {
@@ -33,18 +45,13 @@ const useStyles = makeStyles(() => ({
     color: "#161F22",
     fontSize: 22,
     paddingLeft: 15,
+    paddingRight: 15,
   },
   takkar: {
     paddingLeft: 5,
     zIndex: -1,
     overflow: "auto",
-  },
-  grid: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    direction: "row",
+    marginBottom: 10,
   },
 }));
 
@@ -62,17 +69,29 @@ function FrontPage() {
 
   return (
     <div className={classes.root}>
-      <Typography
-        className={classes.headerHeadline}
-        gutterBottom
-        variant="h3"
-        component="h1"
-      >
-        Cooking made simple!
-      </Typography>
-      <Typography variant="h6" component="p" className={classes.text}>
-        Discover recipes, get motivated and start cooking!
-      </Typography>
+      <div className={classes.headerTextSection}>
+        <Typography
+          className={classes.headerHeadline}
+          gutterBottom
+          variant="h3"
+          component="h1"
+        >
+          Cooking made simple!
+        </Typography>
+        <Typography variant="h6" component="p" className={classes.text}>
+          Discover recipes, get motivated and start cooking!
+        </Typography>
+        <svg
+          className={classes.waves}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#D0D8D8"
+            d="M0,128L60,160C120,192,240,256,360,272C480,288,600,256,720,208C840,160,960,96,1080,96C1200,96,1320,160,1380,192L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
       <Typography variant="h6" component="p" className={classes.bodyheaddline}>
         Categories
       </Typography>

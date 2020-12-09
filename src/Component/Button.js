@@ -11,7 +11,6 @@ const useStyles = makeStyles(() => ({
     borderRadius: 6,
     height: 50,
     fontSize: 16,
-    textDecoration: "none",
     justifyContent: "space-around",
   },
   link: {
