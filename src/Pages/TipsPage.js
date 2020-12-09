@@ -49,16 +49,11 @@ function TipsPage() {
         beginners guide
       </Button>
       <Button className={classes.tipsButtons} variant="contained">
-        cooking flow
+        kitchen flow
       </Button>
-      <Button className={classes.tipsButtons} variant="contained">
-        kitchen order
-      </Button>
+
       <Button className={classes.tipsButtons} variant="contained">
         enjoy cooking
-      </Button>
-      <Button className={classes.tipsButtons} variant="contained">
-        make it exciting
       </Button>
     </div>
   );

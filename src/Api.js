@@ -1,6 +1,6 @@
 // kristbjörg api
 // use for presentation, not until then. Stop it, dont touch... shjú!
-// If you need a working api make a new one! hands off this one. 
+// If you need a working api make a new one! hands off this one.
 // const apiKey = "2b4a3fe9cfef40f98088b1e8fa1eb21b";
 
 // fake email api, fyrir emergencies

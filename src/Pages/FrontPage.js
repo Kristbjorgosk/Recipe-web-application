@@ -19,6 +19,7 @@ const useStyles = makeStyles(() => ({
     paddingLeft: 5,
     paddingBottom: 20,
     overflow: "hidder",
+    marginTop: -1,
   },
 
   headerTextSection: {
@@ -70,7 +71,7 @@ function FrontPage() {
           Cooking made simple!
         </Typography>
 
-        <Typography variant="h6" component="p" className={classes.text}>
+        <Typography className={classes.text}>
           Discover recipes, get motivated and start cooking!
         </Typography>
 
@@ -86,9 +87,7 @@ function FrontPage() {
         </svg>
       </div>
 
-      <Typography variant="h6" component="p" className={classes.bodyheaddline}>
-        Categories
-      </Typography>
+      <Typography className={classes.bodyheaddline}>Categories</Typography>
 
       <ButtonGroup orientation="horizontal" className={classes.takkar}>
         {/* Displaying the Takki function from the Button.js file */}
@@ -100,7 +99,7 @@ function FrontPage() {
         <Takki diet="pescetarian" text="Pescetarian"></Takki>
         <Takki diet="paleo" text="Paleo"></Takki>
       </ButtonGroup>
-    
+
       <Typography variant="h6" component="p" className={classes.bodyheaddline}>
         Recipe of the day
       </Typography>

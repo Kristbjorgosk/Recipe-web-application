@@ -63,7 +63,7 @@ function RecipeCard(props) {
 
         <CardActions disableSpacing>
           <Typography className={classes.timeText} component="p">
-            {props.recipe.readyInMinutes} min /&nbsp;
+            {props.recipe.readyInMinutes} min |&nbsp;
             {props.recipe.servings} Servings
           </Typography>
 
