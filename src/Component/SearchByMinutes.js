@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+// import { InputLabel } from '@material-ui/core';
 class SearchByMinutes extends Component {
   // function that runs when a new selection has been made
   onChange = (e) => {
@@ -10,14 +10,17 @@ class SearchByMinutes extends Component {
 
   render() {
     return (
-      <select onChange={this.onChange}>
-        <option value="">How much time you got?</option> {/* change first option to gray */}
-        <option value="10">10 min</option>
-        <option value="30">30 min</option>
-        <option value="60">60 min</option>
-        <option value="120">120 min</option>
-        <option value="240">240 min</option>
-      </select>
+      <form>
+        <label>Time</label>
+        <select onChange={this.onChange}>
+          <option value="">select</option> {/* change first option to gray */}
+            <option value="15">15 min</option>
+            <option value="30">30 min</option>
+            <option value="40">40 min</option>
+            <option value="50">50 min</option>
+            <option value="600">60+ min</option>
+        </select>
+      </form>
     );
   }
 }

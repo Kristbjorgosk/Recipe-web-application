@@ -14,7 +14,7 @@ class SearchByRecipe extends Component {
  
   render() {
     return (
-      <input type="search" onKeyDown={this.onKeyDown} placeholder="Search by Recipe" />
+      <input type="search" onKeyDown={this.onKeyDown} placeholder="search for recipes..." />
     )
   }
 }

@@ -11,12 +11,13 @@ class RecipeSearchForm extends Component {
       <div>
         {/* <SearchByRecipe setQuery={this.props.setQuery} /> */}
         <SearchByIngredients addIngredient={this.props.addIngredient} />
-        <SearchByDiet setDiet={this.props.setDiet} />
-        <SearchByMinutes setMaxReadyTime={this.props.setMaxReadyTime} />
         <IngredientTagList
           ingredients={this.props.ingredients}
           removeIngredient={this.props.removeIngredient}
-        />
+          />
+        <SearchByDiet setDiet={this.props.setDiet} />
+        <SearchByMinutes setMaxReadyTime={this.props.setMaxReadyTime} />
+        
       </div>
     );
   }

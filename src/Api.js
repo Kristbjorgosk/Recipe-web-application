@@ -27,16 +27,16 @@ const apiKey = "fe9c6af3222046ee98ffbe2e539910d1";
 // fake email api 8, I lied
 // const apiKey = "c98702433f7e4f578d692f912c375368";
 
-// fake email api 6, we have a problem
-// const apiKey = "c98702433f7e4f578d692f912c375368 ";
+// fake email api 9, we have a problem
+// const apiKey = "f40c68368f384b359d9958767020e8d1";
 
-// fake email api 7, things are getting crazy
-/// const apiKey = "c98702433f7e4f578d692f912c375368 ";
+// fake email api 10, things are getting crazy
+// const apiKey = "";
 
-// fake email api 7, jesus
-// const apiKey = "f40c68368f384b359d9958767020e8d1 ";
+// fake email api 11, jesus
+// const apiKey = " ";
 
-// kolla fact generator
+// fact generator api
 const fungeneratorsApiKey = "u96Qdi57HBRgQrJEzWUmwAeF";
 
 export { apiKey, fungeneratorsApiKey };
