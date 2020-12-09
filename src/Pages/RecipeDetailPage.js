@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown/with-html";
+import { render } from "react-dom";
 import { apiKey } from "../Api";
 import RecipeCard from "../Component/RecipeCard";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Typography from "@material-ui/core/Typography";
 import { BrowserRouter as Router, useParams } from "react-router-dom";
 
+const useStyles = makeStyles((theme) => ({
+  instructionsList: {
+    paddingTop: 20,
+    fontSize: 18,
+  },
+}));
+
 function RecipeDetailPage(props) {
+  const classes = useStyles();
   const [info, setInfo] = useState();
 
   const params = useParams();
@@ -24,24 +35,20 @@ function RecipeDetailPage(props) {
   // if (!info) {
   //   return null;
   // }
-
+  console.log(info);
   return (
     <div>
       {/* Show if info is defined */}
       {!!info && (
         <>
-          <Typography gutterBottom variant="body1" component="h1">
-            {info.title}
-          </Typography>
-          <img src={info.image} />
-          <Typography> instructions {info.instructions}</Typography>
-          <Typography> Time: {info.readyInMinutes}</Typography>
-          <Typography> Servings: {info.servings}</Typography>
-          {/*        <Typography> Ingreadients {info.extendedIngredients[]}</Typography> */}
+          <RecipeCard recipe={info}></RecipeCard>
+
+          <div
+            className={classes.instructionsList}
+            dangerouslySetInnerHTML={{ __html: info.instructions }}
+          />
         </>
       )}
-      Þetta er url
-      {URL}
     </div>
   );
 }
