@@ -16,7 +16,8 @@ const useStyles = makeStyles({
     position: "sticky",
     bottom: 0,
     backgroundColor: "#EAF2F2",
-    paddingBottom: 8,
+    paddingBottom: 12,
+    boxShadow: "0px -2px 5px rgba(0, 0, 0, 0.15)",
   },
 });
 

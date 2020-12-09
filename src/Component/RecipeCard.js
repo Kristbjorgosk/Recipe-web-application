@@ -11,21 +11,21 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteButton from "./FavoriteButton";
 import "fontsource-rufina";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   recipiecard: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    margin: 0,
   },
   media: {
-    height: 310,
+    height: 170,
     width: 350,
   },
   card: {
     width: 350,
-    height: 500,
+    height: 320,
     borderRadius: 20,
-    paddingBottom: 15,
   },
 
   cardtitile: {
@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "rufina",
   },
   timeText: {
+    margin: 0,
     fontSize: 16,
     fontFamily: "rufina",
     paddingLeft: 7,
@@ -60,8 +61,7 @@ function RecipeCard(props) {
             </Typography>
           </Link>
         </CardContent>
-
-        <CardActions disableSpacing>
+        <CardActions>
           <Typography className={classes.timeText} component="p">
             {props.recipe.readyInMinutes} min |&nbsp;
             {props.recipe.servings} Servings

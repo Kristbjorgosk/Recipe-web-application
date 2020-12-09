@@ -1,8 +1,17 @@
 import React, { useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import RecipeList from "../Component/RecipeList";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: "#EAF2F2",
+    height: "80vh",
+  },
+}));
 
 function FavouritesPage() {
+  const classes = useStyles();
   const [recipes, setRecipes] = React.useState([]);
 
   useEffect(() => {
@@ -15,9 +24,9 @@ function FavouritesPage() {
   }, []);
 
   return (
-    <div>
+    <div className={classes.root}>
       <Typography gutterBottom variant="h3" component="h1">
-        Helloooo þetta er Favourite síðan !! !!
+        Once you have marked a recipe with a 🖤 it will display it
       </Typography>
 
       <RecipeList recipes={recipes} />
