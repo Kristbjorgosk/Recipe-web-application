@@ -15,16 +15,8 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
     height: 140,
     width: 140,
-    marginBottom: 85,
+    marginBottom: 45,
     marginTop: 100,
-  },
-  textHeadline: {
-    color: "#161F22",
-    fontSize: 49,
-  },
-  text: {
-    color: "#161F22",
-    fontSize: 22,
   },
   header: {
     padding: 20,
@@ -54,18 +46,6 @@ function Header(props) {
         <img className={classes.logo} src={logo} alt=""></img>
 
         {/* the text that is inside the header */}
-        <Typography
-          className={classes.textHeadline}
-          gutterBottom
-          variant="h3"
-          component="h1"
-        >
-          Cooking made simple!
-        </Typography>
-        
-        <Typography variant="h6" component="p" className={classes.text}>
-          Discover recipes, get motivated and start cooking!
-        </Typography>
       </Toolbar>
     </React.Fragment>
   );

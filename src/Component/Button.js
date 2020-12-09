@@ -11,11 +11,11 @@ const useStyles = makeStyles(() => ({
     borderRadius: 6,
     height: 50,
     fontSize: 16,
-    maxWidth: 110,
-    // display: "Flex",
-    // flexWrap: "wrap",
     justifyContent: "space-around",
-    // overflow: "hidden",
+  },
+  link: {
+    textDecoration: "none",
+    marginRight: 10,
   },
 }));
 
@@ -30,7 +30,10 @@ function Takki(props) {
         {props.text}
       </Button> */}
 
-      <Link to={`/RecipesFilterPage?diet=${props.diet}`}>
+      <Link
+        className={classes.link}
+        to={`/RecipesFilterPage?diet=${props.diet}`}
+      >
         <Button className={classes.buttons}>{props.text} </Button>
       </Link>
     </>

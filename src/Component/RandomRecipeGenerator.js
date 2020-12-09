@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { apiKey } from "../Api";
-import RecipeCard from './RecipeCard';
+import RecipeCard from "./RecipeCard";
 
 class RandomRecipeGenerator extends Component {
   constructor(props) {
@@ -58,7 +58,7 @@ class RandomRecipeGenerator extends Component {
       .catch((err) => { alert(err.message); });
   }
     
-  render = () => { 
+  render = () => {
     return (
       <>
         <RecipeCard recipe={this.state.random} />

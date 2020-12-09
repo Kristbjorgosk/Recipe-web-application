@@ -3,13 +3,7 @@ import { apiKey } from "../Api";
 import RecipeCard from "../Component/RecipeCard";
 
 import Typography from "@material-ui/core/Typography";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter as Router, useParams } from "react-router-dom";
 
 function RecipeDetailPage(props) {
   const [info, setInfo] = useState();

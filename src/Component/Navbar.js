@@ -13,12 +13,10 @@ import Tab from "@material-ui/core/Tab";
 
 const useStyles = makeStyles({
   root: {
-    position: "fixed",
-    overflow: "auto",
+    position: "sticky",
     bottom: 0,
-    marginTop: 10,
     backgroundColor: "#EAF2F2",
-    zIndex: 2,
+    paddingBottom: 8,
   },
 });
 
@@ -37,37 +35,29 @@ function Navbar() {
       value={value}
       onChange={handleChange}
       variant="fullWidth"
-      indicatorColor="secondary"
-      textColor="secondary"
+      indicatorColor="#3898A5"
+      textColor="3898A5"
       aria-label="icon label tabs example"
     >
-      <Tab
-        to="/"
-        component={Link}
-        value={"/"}
-        icon={<HomeIcon />}
-        label="Home"
-      />
+      <Tab to="/" component={Link} value={"/"} icon={<HomeIcon />} />
       <Tab
         to="/Tipspage"
         component={Link}
         value={"TipsPage"}
         icon={<EmojiObjectsIcon />}
-        label="Tips"
+      />
+
+      <Tab
+        to="/RecipesFilterPage"
+        component={Link}
+        value={"RecipesFilterPage"}
+        icon={<RestaurantIcon />}
       />
       <Tab
         to="/FavouritesPage"
         component={Link}
         value={"Favourite"}
         icon={<FavoriteIcon />}
-        label="Favorite"
-      />
-      <Tab
-        to="/RecipesFilterPage"
-        component={Link}
-        value={"RecipesFilterPage"}
-        icon={<RestaurantIcon />}
-        label="Recipes"
       />
     </Tabs>
   );

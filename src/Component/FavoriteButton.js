@@ -44,7 +44,7 @@ class FavoriteButton extends Component {
   componentDidMount() {
     // get favorite recipes from local storage
     let favorites = localStorage.getItem("favorites") || "[]";
-    favorites = JSON.parse(favorites)
+    favorites = JSON.parse(favorites);
 
     // find the recipe and mark it as favorite if found
     if (favorites.find((item) => item.id === this.props.recipe.id)) {

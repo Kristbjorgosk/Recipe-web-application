@@ -1,76 +1,80 @@
-import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { apiKey } from "../Api";
+import { BrowserRouter as Router, Link, useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import FavoriteButton from "./FavoriteButton";
-// import { red } from "@material-ui/core/colors";
-
-// import Grid from "@material-ui/core/Grid";
-// import GridList from "@material-ui/core/GridList";
-// import RecipeFilterPage from "../Pages/RecipesFilterPage";
-// import RecipeSearchForm from "./RecipeSearchForm";
-// import RecipeDetailPage from "../Pages/RecipeDetailPage";
+import "fontsource-rufina";
 
 const useStyles = makeStyles((theme) => ({
+  recipiecard: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   media: {
-    width: 300,
-    height: 300,
+    height: 310,
+    width: 350,
   },
   card: {
-    width: 200,
+    width: 350,
+    height: 500,
+    borderRadius: 20,
+    paddingBottom: 15,
   },
-  favorite: {
-    height: 40,
-    width: 40,
-    color: "#202C30",
-    zIndex: -1,
-    position: "relative",
+
+  cardtitile: {
+    fontSize: 22,
+    fontFamily: "rufina",
+  },
+  timeText: {
+    fontSize: 16,
+    fontFamily: "rufina",
+    paddingLeft: 7,
   },
 }));
 
 function RecipeCard(props) {
   const classes = useStyles();
-  // const [expanded, setExpanded] = React.useState(false);
-
-  // const handleExpandClick = () => {
-  //   setExpanded(!expanded);
-  // };
 
   return (
-    <Card className={classes.card}>
-      <Link to={`/${props.recipe.id}`}>
-        <CardMedia className={classes.media} image={props.recipe.image} />
-      </Link>
-
-      <CardContent>
+    <div className={classes.recipiecard}>
+      <Card className={classes.card}>
         <Link to={`/${props.recipe.id}`}>
-          <Typography gutterBottom variant="body1" component="h1">
-            {props.recipe.title}
-          </Typography>
+          <CardMedia className={classes.media} image={props.recipe.image} />
         </Link>
-        
-        {/* <Typography variant="body2" color="textSecondary" component="p"> */}
-          {/* Here comes a text about the recipe */}
-        {/* </Typography> */}
-      </CardContent>
 
-      <CardActions disableSpacing>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.recipe.readyInMinutes} min /&nbsp;
-          {props.recipe.servings} Servings
-        </Typography>
+        <CardContent>
+          <Link to={`/${props.recipe.id}`} style={{ textDecoration: "none" }}>
+            <Typography
+              className={classes.cardtitile}
+              gutterBottom
+              component="h1"
+            >
+              {props.recipe.title}
+            </Typography>
+          </Link>
+        </CardContent>
 
-        <FavoriteButton
-          aria-label="add to favorites"
-          className={classes.favorite}
-          recipe={props.recipe}
-        />
-      </CardActions>
-    </Card>
+        <CardActions disableSpacing>
+          <Typography className={classes.timeText} component="p">
+            {props.recipe.readyInMinutes} min /&nbsp;
+            {props.recipe.servings} Servings
+          </Typography>
+
+          <FavoriteButton
+            aria-label="add to favorites"
+            className={classes.favorite}
+            recipe={props.recipe}
+          />
+        </CardActions>
+      </Card>
+    </div>
   );
 }
 

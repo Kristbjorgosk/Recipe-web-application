@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { fungeneratorsApiKey } from "../Api"
+import { fungeneratorsApiKey } from "../Api";
+import "fontsource-quicksand";
+import Typography from "@material-ui/core/Typography";
 
 class RandomFactGenerator extends Component {
   constructor(props) {
@@ -8,7 +10,7 @@ class RandomFactGenerator extends Component {
       fact: "",
     };
   }
-  
+
   componentDidMount() {
     // create headers for API request that contain the API key for the Fungenerators API
     const headers = {
@@ -57,7 +59,21 @@ class RandomFactGenerator extends Component {
 
   render() {
     return (
-      <p>{this.state.fact}</p>
+      <>
+        <Typography
+          style={{
+            paddingLeft: 18,
+            paddingRight: 15,
+            paddingTop: 10,
+            fontFamily: "quicksand",
+            fontSize: 20,
+          }}
+          variant="body2"
+          component="p"
+        >
+          {this.state.fact}
+        </Typography>
+      </>
     );
   }
 }
