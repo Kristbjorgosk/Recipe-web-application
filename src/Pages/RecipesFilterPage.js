@@ -135,9 +135,9 @@ function RecipesFilterPage() {
           alert(err.message);
         });
     },
-    [query, ingredients, diet, maxReadyTime],
+    [query, ingredients, diet, maxReadyTime, number],
     offset,
-    number,
+    
   );
 
   return (
