@@ -6,7 +6,7 @@ class IngredientTag extends Component {
   onCloseClick = (e) => {
     const ingredient = e.target.parentNode.querySelector("span").innerText;
     this.props.removeIngredient(ingredient);
-  }
+  };
 
   render() {
     return (
@@ -15,7 +15,7 @@ class IngredientTag extends Component {
         <i onClick={this.onCloseClick}>&times;</i>
         {/* <Chip size="small" onDelete={handleDelete} /> */}
       </div>
-    )
+    );
   }
 }
 
