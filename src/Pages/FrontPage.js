@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // import { apiKey } from "../Api";
 import "fontsource-roboto";
 import Takki from "../Component/Button";
@@ -57,15 +57,6 @@ const useStyles = makeStyles(() => ({
 
 function FrontPage() {
   const classes = useStyles();
-  // const [recipes, setRecipes] = useState([]);
-  // async function categories(diet) {
-  //   const API_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&diet=${diet}`;
-
-  //   const response = await fetch(API_URL);
-  //   const data = await response.json();
-  //   setRecipes(data.results);
-  //   console.log(data.results);
-  // }
 
   return (
     <div className={classes.root}>
@@ -117,7 +108,7 @@ function FrontPage() {
       <RandomRecipeGenerator />
 
       <Typography variant="h6" component="p" className={classes.bodyheaddline}>
-        Random food fact of the Day
+        Random food fact
       </Typography>
 
       <RandomFactGenerator />

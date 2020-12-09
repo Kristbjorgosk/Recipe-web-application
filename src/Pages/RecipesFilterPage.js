@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import RecipeSearchForm from "../Component/RecipeSearchForm";
+// import RecipeSearchForm from "../Component/RecipeSearchForm";
 import RecipeList from "../Component/RecipeList";
 import { apiKey } from "../Api";
 import Typography from "@material-ui/core/Typography";
@@ -147,16 +147,6 @@ function RecipesFilterPage() {
         setMaxReadyTime={setMaxReadyTime}
         ingredients={ingredients}
       />
-
-{/* mig langar að setja allt úr recipeSearchForm nema query inní RecipeFilterOverlay */}
-      {/* <RecipeSearchForm
-        // setQuery={setQuery}
-        addIngredient={addIngredient}
-        removeIngredient={removeIngredient}
-        setDiet={setDiet}
-        setMaxReadyTime={setMaxReadyTime}
-        ingredients={ingredients}
-      /> */}
       <SearchByRecipe setQuery={setQuery} />
       <RecipeList recipes={recipes} />
     </div>

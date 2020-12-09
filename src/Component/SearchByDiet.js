@@ -10,14 +10,18 @@ class SearchByDiet extends Component {
 
   render() {
     return (
+      <form>
+                <label>Categories</label>
+
       <select onChange={this.onChange}>
-        <option value="">Search by Category</option> {/* change first option to gray */}
-        <option value="vegan">Vegan</option>
-        <option value="vegetarian">Vegetarian</option>
+        <option value="">select</option> {/* change first option to gray */}
         <option value="ketogenic">Keto</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
         <option value="pescetarian">Pescetarian</option>
         <option value="paleo">Paleo</option>
       </select>
+      </form>
     );
   }
 }
