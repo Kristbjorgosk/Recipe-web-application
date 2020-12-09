@@ -22,7 +22,7 @@ function RecipeDetailPage(props) {
       .then((r) => r.json())
       .then((recipeDetails) => {
         setInfo(recipeDetails);
-        console.log(recipeDetails);
+        // console.log(recipeDetails);
       });
   }, []);
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import RecipeSearchForm from "../Component/RecipeSearchForm";
-import { RecipeList } from "../Component/RecipeList";
+import RecipeList from "../Component/RecipeList";
 import { apiKey } from "../Api";
 import "fontsource-roboto";
 
@@ -11,78 +11,98 @@ function RecipesFilterPage() {
   const [maxReadyTime, setMaxReadyTime] = React.useState("");
   const [recipes, setRecipes] = React.useState([]);
 
-  const getApiRecipes = () => {
-    let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`;
-
-    if (query) {
-      url += `&query=${query}`;
-    }
-
-    if (ingredients.length > 0) {
-      const ingredients = ingredients.join(",");
-      url += `&includeIngredients=${ingredients}`;
-    }
-
-    if (diet) {
-      url += `&diet=${diet}`;
-    }
-
-    if (maxReadyTime) {
-      url += `&maxReadyTime=${maxReadyTime}`;
-    }
-
-    console.log(url);
-
-    // get recipes from the API that use the specified ingredients
-    return fetch(url);
+  // adds ingredient to ingredient state array
+  const addIngredient = (ingredient) => {
+    setIngredients([...ingredients, ingredient]);
   };
 
-  useEffect(function () {
+  // removes ingredient from ingredient state array
+  const removeIngredient = (ingredient) => {
+    setIngredients(ingredients.filter((item) => item !== ingredient));
+  };
+
+  // effect that should only run when component is mounted
+  useEffect(() => {
+    // get query string parameters from URL
     const params = new URLSearchParams(window.location.search);
-    const currentQuery = params.get("query") || "";
-
-    let ingredients = params.get("ingredients") || "";
-    ingredients = ingredients.split(",");
-    ingredients = ingredients.filter((ingredient) => ingredient);
+    
+    // get query, diet and maxReadyTime from query string parameters
+    const query = params.get("query") || "";
     const diet = params.get("diet") || "";
-    console.log(diet);
     const maxReadyTime = params.get("maxReadyTime") || "";
+    let ingredients = params.get("ingredients") || "";
 
-    setQuery(currentQuery);
+    // split ingredients on commas to an array
+    ingredients = ingredients.split(",");
+
+    // remove empty ingredients from array
+    ingredients = ingredients.filter((ingredient) => ingredient);
+
+    // set component state
+    setQuery(query);
     setIngredients(ingredients);
     setDiet(diet);
     setMaxReadyTime(maxReadyTime);
   }, []);
 
-  useEffect(
-    function () {
-      getApiRecipes()
-        // convert the API response to an object
-        .then((response) => response.json())
-        .then((data) => {
-          // update the recipe list with the API data
-          console.log("Got response from server");
-          console.log(data);
-          setRecipes(data.results);
-        })
-        .catch((err) => {
-          console.log("Error!");
-          console.log(err);
-        });
-    },
-    [query, ingredients, diet, maxReadyTime]
-  );
+  // effect that should run every time the component's state is updated
+  useEffect(() => {
+    let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&addRecipeInformation=true`;
+
+    // append query to URL
+    if (query) {
+      url += `&query=${query}`;
+    }
+
+    // append ingredients to URL with commas between them
+    if (ingredients.length > 0) {
+      const ingredientStr = ingredients.join(",");
+      url += `&includeIngredients=${ingredientStr}`;
+    }
+
+    // append diet to URL
+    if (diet) {
+      url += `&diet=${diet}`;
+    }
+
+    // append maxReadyTime to URL
+    if (maxReadyTime) {
+      url += `&maxReadyTime=${maxReadyTime}`;
+    }
+
+    // console.log(url);
+
+    // get recipes with filters from Spoonacular API 
+    fetch(url)
+      .then((response) => {
+        // check if API request was successful
+        if (response.status >= 200 && response.status < 300) {
+          // parse the response as JSON data
+          return response.json();
+        }
+
+        // if the API request was not successfull then throw an error
+        throw new Error(`Error ${response.status} - Could not get recipes from API`);
+      })
+      .then((data) => {
+        // update the recipe list with the API data
+        setRecipes(data.results);
+        // console.log(data.results);
+      })
+      .catch((err) => { alert(err.message); });
+  }, [query, ingredients, diet, maxReadyTime]);
 
   return (
     <>
       <RecipeSearchForm
         setQuery={setQuery}
-        setIngredients={setIngredients}
+        addIngredient={addIngredient}
+        removeIngredient={removeIngredient}
         setDiet={setDiet}
         setMaxReadyTime={setMaxReadyTime}
         ingredients={ingredients}
       />
-      <RecipeList recipes={recipes} maxReadyTime={maxReadyTime} />
+      <RecipeList recipes={recipes} />
     </>
   );
 }

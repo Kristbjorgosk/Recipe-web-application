@@ -6,29 +6,16 @@ import SearchByMinutes from "./SearchByMinutes";
 import IngredientTagList from "./IngredientTagList";
 
 class RecipeSearchForm extends Component {
-
-  addIngredient = (ingredient) => {
-    this.setState({
-      ingredients: [...this.state.ingredients, ingredient],
-    });
-  };
-
-  removeIngredient = (ingredient) => {
-    this.setState({
-      ingredients: this.state.ingredients.filter((item) => item !== ingredient),
-    });
-  };
-
   render() {
     return (
       <div>
         <SearchByRecipe setQuery={this.props.setQuery} />
-        <SearchByIngredients addIngredient={this.addIngredient} />
+        <SearchByIngredients addIngredient={this.props.addIngredient} />
         <SearchByDiet setDiet={this.props.setDiet} />
         <SearchByMinutes setMaxReadyTime={this.props.setMaxReadyTime} />
         <IngredientTagList
           ingredients={this.props.ingredients}
-          removeIngredient={this.removeIngredient}
+          removeIngredient={this.props.removeIngredient}
         />
       </div>
     );

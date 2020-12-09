@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#EAF2F2",
     position: "relative",
     zIndex: -1,
-    position: "relative",
     display: "flex",
     flexDirection: "column",
     flexWrap: "wrap",
@@ -63,6 +62,7 @@ function Header(props) {
         >
           Cooking made simple!
         </Typography>
+        
         <Typography variant="h6" component="p" className={classes.text}>
           Discover recipes, get motivated and start cooking!
         </Typography>

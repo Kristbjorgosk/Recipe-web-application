@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { apiKey } from "../Api";
+// import { apiKey } from "../Api";
 import "fontsource-roboto";
 import Takki from "../Component/Button";
 import Typography from "@material-ui/core/Typography";
@@ -38,21 +38,22 @@ const useStyles = makeStyles(() => ({
 }));
 
 function FrontPage() {
-  const classes = useStyles();  
-  const [recipes, setRecipes] = useState([]);
-  async function categories(diet) {
-    const API_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&diet=${diet}`;
+  const classes = useStyles();
+    
+  // const [recipes, setRecipes] = useState([]);
+  // async function categories(diet) {
+  //   const API_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&diet=${diet}`;
 
-    // -- Spyrja Smára hvort þetta sé rétt til að sýna time í recipe card
-    // if (recipes.maxReadyTime) {
-    //   API_URL += `&maxReadyTime=${props.maxReadyTime}`;
-    // }
+  //   // -- Spyrja Smára hvort þetta sé rétt til að sýna time í recipe card
+  //   // if (recipes.maxReadyTime) {
+  //   //   API_URL += `&maxReadyTime=${props.maxReadyTime}`;
+  //   // }
 
-    const response = await fetch(API_URL);
-    const data = await response.json();
-    setRecipes(data.results);
-    console.log(data.results);
-  }
+  //   const response = await fetch(API_URL);
+  //   const data = await response.json();
+  //   setRecipes(data.results);
+  //   console.log(data.results);
+  // }
   // function to get different diets and it is trickered when clicking the button below in return section
 
   return (
@@ -62,17 +63,17 @@ function FrontPage() {
         Categories
       </Typography>
 
-      {/* <Link to="/recipes?diet=ketogenic">Keto</Link> */}
-
       <ButtonGroup orientation="horizontal" className={classes.takkar}>
-        {/* Displaying the Takki function from the Button.js folder */}
+        {/* Displaying the Takki function from the Button.js file */}
         {/* Categories is the function above, it displays the diet that is in the () */}
+        <Takki diet="" text="See All"></Takki>
         <Takki diet="vegan" text="Vegan"></Takki>
         <Takki diet="ketogenic" text="Keto"></Takki>
         <Takki diet="vegetarian" text="Vegetarian"></Takki>
         <Takki diet="pescetarian" text="Pescetarian"></Takki>
         <Takki diet="paleo" text="Paleo"></Takki>
       </ButtonGroup>
+      
       <Typography variant="h6" component="p" className={classes.bodytext}>
         Recipe of the moment
       </Typography>

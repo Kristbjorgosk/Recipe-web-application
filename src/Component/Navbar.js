@@ -9,7 +9,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {

@@ -8,38 +8,55 @@ class FavoriteButton extends Component {
     this.state = { active: false };
   }
 
-  clickHandler = (e) => {
-    let favoriteIds = localStorage.getItem("favoriteIds") || "[]";
-    favoriteIds = JSON.parse(favoriteIds)
+  clickHandler = () => {
+    // get favorites array from local storage and
+    let favorites = localStorage.getItem("favorites") || "[]";
+    favorites = JSON.parse(favorites)
 
+    // if recipe is already favorited
     if (this.state.active === true) {
       this.setState({ active: false });
-      const index = favoriteIds.indexOf(this.props.recipeId);
-      if (index !== -1) {
-        favoriteIds.splice(index, 1);
+
+      // find the recipe and remove it from favorites
+      const recipe = favorites.find((item) => item.id === this.props.recipe.id);
+      if (recipe !== null) {
+        favorites.splice(recipe, 1);
       }
     } else {
+      // else if recipe is not favorited
       this.setState({ active: true });
-      favoriteIds.push(this.props.recipeId)
+
+      // add it to favorites
+      favorites.push({
+        id: this.props.recipe.id,
+        title: this.props.recipe.title,
+        image: this.props.recipe.image,
+        readyInMinutes: this.props.recipe.readyInMinutes,
+        servings: this.props.recipe.servings,
+      })
     }
 
-    favoriteIds = JSON.stringify(favoriteIds);
-    localStorage.setItem("favoriteIds", favoriteIds);
+    // convert favorites to string and store in local storage
+    favorites = JSON.stringify(favorites);
+    localStorage.setItem("favorites", favorites);
   };
 
   componentDidMount() {
-    let favoriteIds = localStorage.getItem("favoriteIds") || "[]";
-    favoriteIds = JSON.parse(favoriteIds)
+    // get favorite recipes from local storage
+    let favorites = localStorage.getItem("favorites") || "[]";
+    favorites = JSON.parse(favorites)
 
-    if (favoriteIds.includes(this.props.recipeId)) {
+    // find the recipe and mark it as favorite if found
+    if (favorites.find((item) => item.id === this.props.recipe.id)) {
       this.setState({ active: true })
     }
   }
 
   render() {
+    // render favorite rounded icon if recipe is favorited
     if (this.state.active) {
       return <FavoriteRoundedIcon onClick={this.clickHandler} />;
-    } else {
+    } else { // otherwise render favorite border rounded icon if recipe is not favorited
       return <FavoriteBorderRoundedIcon onClick={this.clickHandler} />;
     }
   }

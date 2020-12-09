@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
 class SearchByDiet extends Component {
+  // function that runs when a new selection has been made
   onChange = (e) => {
+    // get selected diet from dropdown list set it to props
     const diet = e.target.options[e.target.selectedIndex].value;
     this.props.setDiet(diet);
   }

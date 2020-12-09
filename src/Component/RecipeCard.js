@@ -7,13 +7,13 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import FavoriteButton from "./FavoriteButton";
-import { red } from "@material-ui/core/colors";
+// import { red } from "@material-ui/core/colors";
 
-import Grid from "@material-ui/core/Grid";
-import GridList from "@material-ui/core/GridList";
-import RecipeFilterPage from "../Pages/RecipesFilterPage";
-import RecipeSearchForm from "./RecipeSearchForm";
-import RecipeDetailPage from "../Pages/RecipeDetailPage";
+// import Grid from "@material-ui/core/Grid";
+// import GridList from "@material-ui/core/GridList";
+// import RecipeFilterPage from "../Pages/RecipesFilterPage";
+// import RecipeSearchForm from "./RecipeSearchForm";
+// import RecipeDetailPage from "../Pages/RecipeDetailPage";
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -34,40 +34,43 @@ const useStyles = makeStyles((theme) => ({
 
 function RecipeCard(props) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  // const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  // const handleExpandClick = () => {
+  //   setExpanded(!expanded);
+  // };
 
   return (
-    <Link to={`/${props.id}`}>
-      <Card className={classes.card}>
-        <CardMedia className={classes.media} image={props.image} />
+    <Card className={classes.card}>
+      <Link to={`/${props.recipe.id}`}>
+        <CardMedia className={classes.media} image={props.recipe.image} />
+      </Link>
 
-        <CardContent>
+      <CardContent>
+        <Link to={`/${props.recipe.id}`}>
           <Typography gutterBottom variant="body1" component="h1">
-            {props.title}
+            {props.recipe.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {/* Here comes a text about the recipe */}
-          </Typography>
-        </CardContent>
+        </Link>
+        
+        {/* <Typography variant="body2" color="textSecondary" component="p"> */}
+          {/* Here comes a text about the recipe */}
+        {/* </Typography> */}
+      </CardContent>
 
-        <CardActions disableSpacing>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.maxReadyTime}
-            Time / Serving
-          </Typography>
+      <CardActions disableSpacing>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {props.recipe.readyInMinutes} min /&nbsp;
+          {props.recipe.servings} Servings
+        </Typography>
 
-          <FavoriteButton
-            aria-label="add to favorites"
-            className={classes.favorite}
-            recipeId={props.id}
-          />
-        </CardActions>
-      </Card>
-    </Link>
+        <FavoriteButton
+          aria-label="add to favorites"
+          className={classes.favorite}
+          recipe={props.recipe}
+        />
+      </CardActions>
+    </Card>
   );
 }
 

@@ -4,7 +4,10 @@ class SearchByRecipe extends Component {
   onKeyDown = (e) => {
     // if user presses Enter
     if (e.keyCode === 13) {
+      // get query from textbox
       const query = e.target.value;
+
+      // set query to props
       this.props.setQuery(query);
     }
   }
