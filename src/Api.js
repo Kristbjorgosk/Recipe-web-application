@@ -1,4 +1,6 @@
 // kristbjörg api
+// use for presentation, not until then. Stop it, dont touch... shjú!
+// If you need a working api make a new one! hands off this one. 
 // const apiKey = "2b4a3fe9cfef40f98088b1e8fa1eb21b";
 
 // fake email api, fyrir emergencies
@@ -14,13 +16,13 @@
 // const apiKey = "63ae9be7fbe446b2a8d2638902d790f8";
 
 // fake email api 5, I think we might have a problem
-// const apiKey = "93e3503c54af442e80f0425f8a24af88";
+const apiKey = "93e3503c54af442e80f0425f8a24af88";
 
 // fake email api 6, I give up!
 // const apiKey = "1e7e873f67f946cc9bf35cc582d6009f";
 
 // fake email api 7, last one I hope
-const apiKey = "c5613970304641f2b3f8eab282e040f5";
+// const apiKey = "c5613970304641f2b3f8eab282e040f5";
 
 // fake email api 8, I lied
 // const apiKey = "c98702433f7e4f578d692f912c375368";

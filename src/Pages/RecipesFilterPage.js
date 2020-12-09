@@ -5,6 +5,9 @@ import { apiKey } from "../Api";
 import Typography from "@material-ui/core/Typography";
 import "fontsource-roboto";
 import { makeStyles } from "@material-ui/core/styles";
+import RecipeFilterOverlay from "../Component/RecipeFilterOverlay";
+import SearchByRecipe from "../Component/SearchByRecipe";
+
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -137,14 +140,24 @@ function RecipesFilterPage() {
         ></path>
       </svg>
 
-      <RecipeSearchForm
-        setQuery={setQuery}
+      <RecipeFilterOverlay
         addIngredient={addIngredient}
         removeIngredient={removeIngredient}
         setDiet={setDiet}
         setMaxReadyTime={setMaxReadyTime}
         ingredients={ingredients}
       />
+
+{/* mig langar að setja allt úr recipeSearchForm nema query inní RecipeFilterOverlay */}
+      {/* <RecipeSearchForm
+        // setQuery={setQuery}
+        addIngredient={addIngredient}
+        removeIngredient={removeIngredient}
+        setDiet={setDiet}
+        setMaxReadyTime={setMaxReadyTime}
+        ingredients={ingredients}
+      /> */}
+      <SearchByRecipe setQuery={setQuery} />
       <RecipeList recipes={recipes} />
     </div>
   );
