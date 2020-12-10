@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 // import RecipeSearchForm from "../Component/RecipeSearchForm";
 import RecipeList from "../Component/RecipeList";
-
 import { apiKey } from "../Api";
 import Typography from "@material-ui/core/Typography";
 import "fontsource-roboto";
@@ -14,22 +13,25 @@ import IngredientTagList from "../Component/IngredientTagList";
 const useStyles = makeStyles(() => ({
   root: {
     backgroundColor: "#D0D8D8",
-    height: "100%",
-    color: "#161F22",
-    position: "relative",
-    paddingLeft: 5,
   },
   headerHeadline: {
     fontSize: 49,
-    paddingLeft: 15,
+    display: "flex",
+    flexWrap: "nowrap",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "spaceBetween",
+    backgroundColor: "#EAF2F2",
   },
   headlineSection: {
     backgroundColor: "#EAF2F2",
+    display: "inline-flex",
   },
   waves: {
     backgroundColor: "#EAF2F2",
     display: "flex",
     alignItems: "flex-end",
+    marginBottom: 40,
   },
 }));
 
@@ -145,51 +147,52 @@ function RecipesFilterPage() {
   }
 
   return (
-    <div className={classes.headlineSection}>
+    <div>
       <Typography variant="h6" component="p" className={classes.headerHeadline}>
         Recipes
       </Typography>
-
-      <div className={classes.root}></div>
-
-      <svg
-        className={classes.waves}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-      >
-        <path
-          fill="#D0D8D8"
-          d="M0,128L60,160C120,192,240,256,360,272C480,288,600,256,720,208C840,160,960,96,1080,96C1200,96,1320,160,1380,192L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-        ></path>
-      </svg>
-
-      <SearchByRecipe 
-        setQuery={setQuery} 
-        setRecipes={setRecipes}
-        setOffset={setOffset}
-      />
-      <IngredientTagList
-        ingredients={ingredients}
-        removeIngredient={removeIngredient}
-      />
-      
-      <RecipeFilterOverlay
-        setDiet={setDiet}
-        diet={diet}
-
-        setMaxReadyTime={setMaxReadyTime}
-        maxReadyTime={maxReadyTime}
+      <div className={classes.headlineSection}>
+        <SearchByRecipe 
+          setQuery={setQuery} 
+          setRecipes={setRecipes}
+          setOffset={setOffset}
+        />
+        <IngredientTagList
+          ingredients={ingredients}
+          removeIngredient={removeIngredient}
+        />
         
-        setIngredients={setIngredients}
-        ingredients={ingredients}
+        <RecipeFilterOverlay
+          setDiet={setDiet}
+          diet={diet}
 
-        setRecipes={setRecipes}
-        setOffset={setOffset}
-      />
+          setMaxReadyTime={setMaxReadyTime}
+          maxReadyTime={maxReadyTime}
+          
+          setIngredients={setIngredients}
+          ingredients={ingredients}
 
-      <RecipeList recipes={recipes} />
-      
-      <Button onClick={onSeeMoreClick}>See more</Button>
+          setRecipes={setRecipes}
+          setOffset={setOffset}
+        />
+      </div>
+
+      <div className={classes.root}>
+        <svg
+          className={classes.waves}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#D0D8D8"
+            d="M0,128L60,160C120,192,240,256,360,272C480,288,600,256,720,208C840,160,960,96,1080,96C1200,96,1320,160,1380,192L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+          ></path>
+        </svg>
+
+        <RecipeList recipes={recipes} />
+
+        <Button onClick={onSeeMoreClick}>See more</Button>
+      </div>
     </div>
   );
 }

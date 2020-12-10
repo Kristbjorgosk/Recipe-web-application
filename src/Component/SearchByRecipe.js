@@ -12,12 +12,26 @@ class SearchByRecipe extends Component {
       this.props.setOffset(0);
       this.props.setQuery(query);
     }
-  }
- 
+  };
+
   render() {
     return (
-      <input type="search" onKeyDown={this.onKeyDown} placeholder="search for recipes..." />
-    )
+      <input
+        style={{
+          maxWidth: 300,
+          lineHeight: 2,
+          fontSize: 20,
+          borderRadius: "50px 0 0 50px",
+          outline: "none",
+          display: "flex",
+          paddingLeft: 15,
+          border: "none",
+        }}
+        type="search"
+        onKeyDown={this.onKeyDown}
+        placeholder="search for recipes..."
+      />
+    );
   }
 }
 
