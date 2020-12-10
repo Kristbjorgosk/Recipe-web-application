@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 // import RecipeSearchForm from "../Component/RecipeSearchForm";
 import RecipeList from "../Component/RecipeList";
-
 import { apiKey } from "../Api";
 import Typography from "@material-ui/core/Typography";
 import "fontsource-roboto";
@@ -14,13 +13,10 @@ const useStyles = makeStyles(() => ({
   root: {
     backgroundColor: "#D0D8D8",
     height: "100%",
-    color: "#161F22",
-    position: "relative",
-    paddingLeft: 5,
+    paddingTop: 40,
   },
   headerHeadline: {
     fontSize: 49,
-    paddingLeft: 15,
   },
   headlineSection: {
     backgroundColor: "#EAF2F2",
@@ -136,8 +132,7 @@ function RecipesFilterPage() {
         });
     },
     [query, ingredients, diet, maxReadyTime, number],
-    offset,
-    
+    offset
   );
 
   return (
@@ -146,31 +141,30 @@ function RecipesFilterPage() {
         Recipes
       </Typography>
 
-      <div className={classes.root}></div>
-
-      <svg
-        className={classes.waves}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-      >
-        <path
-          fill="#D0D8D8"
-          d="M0,128L60,160C120,192,240,256,360,272C480,288,600,256,720,208C840,160,960,96,1080,96C1200,96,1320,160,1380,192L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-        ></path>
-      </svg>
-
-      <RecipeFilterOverlay
-        addIngredient={addIngredient}
-        removeIngredient={removeIngredient}
-        setDiet={setDiet}
-        setMaxReadyTime={setMaxReadyTime}
-        ingredients={ingredients}
-      />
-
-      <SearchByRecipe setQuery={setQuery} />
-
-      <RecipeList recipes={recipes} />
-      <Button onClick={recipes.number}>See more</Button>
+      <div>
+        <SearchByRecipe setQuery={setQuery} />
+        <RecipeFilterOverlay
+          addIngredient={addIngredient}
+          removeIngredient={removeIngredient}
+          setDiet={setDiet}
+          setMaxReadyTime={setMaxReadyTime}
+          ingredients={ingredients}
+        />
+        <svg
+          className={classes.waves}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#D0D8D8"
+            d="M0,128L60,160C120,192,240,256,360,272C480,288,600,256,720,208C840,160,960,96,1080,96C1200,96,1320,160,1380,192L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+          ></path>
+        </svg>
+        <div className={classes.root}>
+          <RecipeList recipes={recipes} />
+          <Button onClick={recipes.number}>See more</Button>
+        </div>
+      </div>
     </div>
   );
 }
