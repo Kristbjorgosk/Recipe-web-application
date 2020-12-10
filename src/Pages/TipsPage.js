@@ -7,6 +7,7 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 
 import Divider from "@material-ui/core/Divider";
 import "fontsource-quicksand";
@@ -71,10 +72,18 @@ const useStyles = makeStyles((theme) => ({
 
 function TipsPage() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [showFirstTip, setShowFirstTip] = React.useState(false);
+  const [showSecondTip, setShowSecondTip] = React.useState(false);
+  const [showThirdTip, setShowThirdTip] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const handleShowFirstTipClick = () => {
+    setShowFirstTip(!showFirstTip);
+  };
+  const handleShowSecondTipClick = () => {
+    setShowSecondTip(!showSecondTip);
+  };
+  const handleShowThirdTipClick = () => {
+    setShowThirdTip(!showThirdTip);
   };
 
   return (
@@ -84,15 +93,15 @@ function TipsPage() {
         BEGINNERS GUIDE
         <IconButton
           className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
+            [classes.expandOpen]: showFirstTip,
           })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
+          onClick={handleShowFirstTipClick}
+          aria-expanded={showFirstTip}
           aria-label="show more"
         >
           <ExpandMoreIcon />
         </IconButton>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <Collapse in={showFirstTip} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography paragraph>
               At the end of the day, like everything else in life, cooking boils
@@ -124,6 +133,13 @@ function TipsPage() {
               food by allowing you to take control over what you eat.”
             </Typography>
             <Typography paragraph>- Ranelle Kirchner</Typography>
+            <IconButton
+              onClick={handleShowFirstTipClick}
+              aria-expanded={showFirstTip}
+              aria-label="close tip"
+            >
+              <CloseRoundedIcon />
+            </IconButton>
           </CardContent>
         </Collapse>
       </div>
@@ -131,15 +147,15 @@ function TipsPage() {
         KITCHEN FLOW
         <IconButton
           className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
+            [classes.expandOpen]: showSecondTip,
           })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
+          onClick={handleShowSecondTipClick}
+          aria-expanded={showSecondTip}
           aria-label="show more"
         >
           <ExpandMoreIcon />
         </IconButton>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <Collapse in={showSecondTip} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography paragraph>
               You can scrub and declutter your kitchen to sparkling perfection,
@@ -226,6 +242,13 @@ function TipsPage() {
               baking station for the next time you make cookies. You’ll save
               energy and can show off your favorite part of the kitchen.
             </Typography>
+            <IconButton
+              onClick={handleShowSecondTipClick}
+              aria-expanded={showSecondTip}
+              aria-label="close tip"
+            >
+              <CloseRoundedIcon />
+            </IconButton>
           </CardContent>
         </Collapse>
       </div>
@@ -233,15 +256,15 @@ function TipsPage() {
         ENJOY COOKING
         <IconButton
           className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
+            [classes.expandOpen]: showThirdTip,
           })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
+          onClick={handleShowThirdTipClick}
+          aria-expanded={showThirdTip}
           aria-label="show more"
         >
           <ExpandMoreIcon />
         </IconButton>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <Collapse in={showThirdTip} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography paragraph>"healthy eating is too hard"</Typography>
             <Typography paragraph>"I hate cooking"</Typography>
@@ -360,6 +383,13 @@ function TipsPage() {
               movements, the smells and your surroundings. Its just you, in this
               moment making a meal.
             </Typography>
+            <IconButton
+              onClick={handleShowThirdTipClick}
+              aria-expanded={showThirdTip}
+              aria-label="close tip"
+            >
+              <CloseRoundedIcon />
+            </IconButton>
           </CardContent>
         </Collapse>
       </div>

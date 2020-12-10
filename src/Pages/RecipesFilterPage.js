@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import RecipeFilterOverlay from "../Component/RecipeFilterOverlay";
 import SearchByRecipe from "../Component/SearchByRecipe";
 import { Button } from "@material-ui/core";
+import IngredientTagList from "../Component/IngredientTagList";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles(() => ({
   waves: {
     backgroundColor: "#EAF2F2",
     display: "flex",
-    alignItems: "flexEnd",
+    alignItems: "flex-end",
   },
 }));
 
@@ -36,16 +37,6 @@ function RecipesFilterPage() {
   const [recipes, setRecipes] = React.useState([]);
   const [offset, setOffset] = React.useState("");
   const [number, setnumber] = React.useState("");
-
-  // adds ingredient to ingredient state array
-  const addIngredient = (ingredient) => {
-    setIngredients([...ingredients, ingredient]);
-  };
-
-  // removes ingredient from ingredient state array
-  const removeIngredient = (ingredient) => {
-    setIngredients(ingredients.filter((item) => item !== ingredient));
-  };
 
   // effect that should only run when component is mounted
   useEffect(() => {
@@ -135,36 +126,48 @@ function RecipesFilterPage() {
     offset
   );
 
+  // removes ingredient from ingredient state array
+  const removeIngredient = (ingredient) => {
+    setIngredients(ingredients.filter((item) => item !== ingredient));
+  };
+
   return (
     <div className={classes.headlineSection}>
       <Typography variant="h6" component="p" className={classes.headerHeadline}>
         Recipes
       </Typography>
 
-      <div>
-        <SearchByRecipe setQuery={setQuery} />
-        <RecipeFilterOverlay
-          addIngredient={addIngredient}
-          removeIngredient={removeIngredient}
-          setDiet={setDiet}
-          setMaxReadyTime={setMaxReadyTime}
-          ingredients={ingredients}
-        />
-        <svg
-          className={classes.waves}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-        >
-          <path
-            fill="#D0D8D8"
-            d="M0,128L60,160C120,192,240,256,360,272C480,288,600,256,720,208C840,160,960,96,1080,96C1200,96,1320,160,1380,192L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-          ></path>
-        </svg>
-        <div className={classes.root}>
-          <RecipeList recipes={recipes} />
-          <Button onClick={recipes.number}>See more</Button>
-        </div>
-      </div>
+      <SearchByRecipe setQuery={setQuery} />
+      <IngredientTagList
+        ingredients={ingredients}
+        removeIngredient={removeIngredient}
+      />
+
+      <RecipeFilterOverlay
+        setDiet={setDiet}
+        diet={diet}
+        setMaxReadyTime={setMaxReadyTime}
+        maxReadyTime={maxReadyTime}
+        setIngredients={setIngredients}
+        ingredients={ingredients}
+      />
+
+      <div className={classes.root}></div>
+
+      <svg
+        className={classes.waves}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
+        <path
+          fill="#D0D8D8"
+          d="M0,128L60,160C120,192,240,256,360,272C480,288,600,256,720,208C840,160,960,96,1080,96C1200,96,1320,160,1380,192L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+        ></path>
+      </svg>
+
+      <RecipeList recipes={recipes} />
+
+      <Button onClick={recipes.number}>See more</Button>
     </div>
   );
 }

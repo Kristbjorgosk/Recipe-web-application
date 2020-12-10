@@ -34,13 +34,18 @@ export default function RecipeFilterOverlay(props) {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
-  const [ingredients, setIngredients] = React.useState(false);
+  const [ingredients, setIngredients] = React.useState([]);
+  const [diet, setDiet] = React.useState("");
+  const [maxReadyTime, setMaxReadyTime] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
+    props.setIngredients(ingredients);
+    props.setDiet(diet);
+    props.setMaxReadyTime(maxReadyTime);
     setOpen(false);
   };
 
@@ -74,11 +79,13 @@ export default function RecipeFilterOverlay(props) {
         <div>
           <DialogContent>
             <RecipeSearchForm
-              addIngredient={props.addIngredient}
-              removeIngredient={props.removeIngredient}
-              setDiet={props.setDiet}
-              setMaxReadyTime={props.setMaxReadyTime}
-              ingredients={props.ingredients}
+              addIngredient={addIngredient}
+              removeIngredient={removeIngredient}
+              setDiet={setDiet}
+              diet={props.diet}
+              setMaxReadyTime={setMaxReadyTime}
+              maxReadyTime={props.maxReadyTime}
+              ingredients={ingredients}
             />
           </DialogContent>
 

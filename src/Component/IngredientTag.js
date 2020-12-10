@@ -11,13 +11,8 @@ class IngredientTag extends Component {
   render() {
     return (
       <div>
-        <span>
-          <i>
-            <Chip size="small">
-              {this.props.tag} onClick={this.onCloseClick} &times;
-            </Chip>
-          </i>
-        </span>
+        <span>{this.props.tag}</span>
+        {this.props.closable && <i onClick={this.onCloseClick}>&times;</i>}
       </div>
     );
   }

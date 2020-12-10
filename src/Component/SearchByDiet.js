@@ -8,6 +8,21 @@ class SearchByDiet extends Component {
     this.props.setDiet(diet);
   };
 
+  componentDidMount() {
+    // if a diet/category has been chosen
+    if (this.props.diet !== "") {
+      // find the selected diet in dropdown list
+      const selectedDiet = Array.from(
+        document.querySelectorAll("#dietDropdown option")
+      ).find((option) => option.value === this.props.diet);
+
+      // select the diet
+      if (selectedDiet !== undefined) {
+        selectedDiet.selected = true;
+      }
+    }
+  }
+
   render() {
     return (
       <form
@@ -28,6 +43,7 @@ class SearchByDiet extends Component {
           Categories
         </label>
         <select
+          id="dietDropdown"
           style={{
             backgroundColor: "#3898A5",
             color: "#EAF2F2",

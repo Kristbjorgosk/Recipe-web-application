@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { InputLabel } from '@material-ui/core';
+
 class SearchByMinutes extends Component {
   // function that runs when a new selection has been made
   onChange = (e) => {
@@ -7,6 +7,21 @@ class SearchByMinutes extends Component {
     const maxReadyTime = e.target.options[e.target.selectedIndex].value;
     this.props.setMaxReadyTime(maxReadyTime);
   };
+
+  componentDidMount() {
+    // if a maxReadyTime has been chosen
+    if (this.props.maxReadyTime !== "") {
+      // find the selected time in dropdown list
+      const selectedTime = Array.from(
+        document.querySelectorAll("#minutesDropdown option")
+      ).find((option) => option.value === this.props.maxReadyTime);
+
+      // select the time
+      if (selectedTime !== undefined) {
+        selectedTime.selected = true;
+      }
+    }
+  }
 
   render() {
     return (
@@ -29,6 +44,7 @@ class SearchByMinutes extends Component {
           Time
         </label>
         <select
+          id="minutesDropdown"
           style={{
             backgroundColor: "#3898A5",
             color: "#EAF2F2",

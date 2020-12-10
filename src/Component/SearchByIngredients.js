@@ -5,22 +5,26 @@ class SearchByIngredients extends Component {
   onKeyDown = (e) => {
     // if user presses Enter
     if (e.keyCode === 13) {
-      // get ingredient text
-      const tag = e.target.value;
-
-      // add ingredient to props
-      this.props.addIngredient(tag);
-
-      // empty ingredient textbox
-      e.target.value = "";
+      // simulate button click
+      e.target.parentNode.querySelector("button").click();
     }
   };
 
   handleClick = (e) => {
-    // console.log('The link was clicked.');
-    const tag = e.target.value;
+    // get search textbox
+    const input = e.target.parentNode.querySelector("input");
+
+    // read tag from textbox
+    const tag = input.value;
+
+    // add tag to RecipeSearchForm ingredients
     this.props.addIngredient(tag);
-    e.target.value = "";
+
+    // clear textbox
+    input.value = "";
+
+    // focus textbox
+    input.focus();
   };
 
   render() {
@@ -46,21 +50,11 @@ class SearchByIngredients extends Component {
             maxWidth: 260,
             border: "1px solid #F0F9F9",
           }}
+          type="search"
+          onKeyDown={this.onKeyDown}
+          placeholder="Search for Ingredients"
         />
-        <button
-          style={{
-            backgroundColor: "#A2CCBE",
-            border: "none",
-            height: 30,
-            maxWidth: 90,
-            height: 39,
-            marginLeft: 3,
-            borderRadius: "0px 30px 30px 0px",
-          }}
-          onClick={this.handleClick}
-        >
-          Add
-        </button>
+        <button onClick={this.handleClick}>Add</button>
       </div>
     );
   }
