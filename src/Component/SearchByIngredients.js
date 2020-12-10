@@ -57,6 +57,9 @@ class SearchByIngredients extends Component {
         <button
           style={{
             backgroundColor: "#A2CCBE",
+            fontFamily: "quicksand",
+            fontWeight: 700,
+            fontSize: 20,
             border: "none",
             height: 30,
             maxWidth: 90,

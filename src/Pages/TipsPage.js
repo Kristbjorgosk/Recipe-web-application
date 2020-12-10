@@ -1,5 +1,4 @@
 import React from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import CardContent from "@material-ui/core/CardContent";
@@ -8,7 +7,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
-
 import "fontsource-quicksand";
 
 const useStyles = makeStyles((theme) => ({
@@ -16,8 +14,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#EAF2F2",
     height: "100%",
     color: "#161F22",
+    fontWeight: 700,
+    fontFamily: "quicksand",
     paddingBottom: 100,
     paddingTop: 80,
+    paddingLeft: 20,
+    paddingRight: 20,
     alignItems: "center",
     justifyContent: "center",
     display: "flex",
@@ -25,9 +27,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
   },
   tipHeadline: {
-    color: "#161F22",
     fontSize: 49,
-    paddingLeft: 15,
     paddingBottom: 50,
     justifyContent: "center",
     display: "flex",
@@ -49,18 +49,24 @@ const useStyles = makeStyles((theme) => ({
   },
   tip1: {
     backgroundColor: "#A2CCBE",
+    fontSize: 26,
+    lineHeight: 2,
     marginBottom: 15,
     maxWidth: 450,
     borderRadius: 20,
   },
   tip2: {
     backgroundColor: "#A2CCBE",
+    fontSize: 26,
+    lineHeight: 2,
     marginBottom: 15,
     maxWidth: 450,
     borderRadius: 20,
   },
   tip3: {
     backgroundColor: "#A2CCBE",
+    fontSize: 26,
+    lineHeight: 2,
     marginBottom: 15,
     maxWidth: 450,
     borderRadius: 20,

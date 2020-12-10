@@ -11,7 +11,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   root: {
     background: "rgba(234, 242, 242, 0.9)",
-    maxHeight: 700,
+    height: "auto",
     paddingBottom: 12,
     display: "flex",
     flexDirection: "column",
@@ -108,6 +108,9 @@ export default function RecipeFilterOverlay(props) {
                 height: 39,
                 marginBottom: 15,
                 borderRadius: "30px 30px 30px 30px",
+                fontFamily: "quicksand",
+                fontWeight: 700,
+                fontSize: 20,
               }}
               onClick={handleClose}
               color="primary"

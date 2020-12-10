@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "fontsource-quicksand";
 
 class SearchByDiet extends Component {
   // function that runs when a new selection has been made
@@ -38,6 +39,9 @@ class SearchByDiet extends Component {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            fontFamily: "quicksand",
+            fontWeight: 700,
+            fontSize: 26,
           }}
         >
           Categories
@@ -45,7 +49,7 @@ class SearchByDiet extends Component {
         <select
           id="dietDropdown"
           style={{
-            backgroundColor: "#3898A5",
+            backgroundColor: "rgba(151, 157, 157, 1)",
             color: "#EAF2F2",
             width: 170,
             fontSize: 20,

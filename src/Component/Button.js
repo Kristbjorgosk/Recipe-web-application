@@ -10,7 +10,8 @@ const useStyles = makeStyles(() => ({
     margin: 5,
     borderRadius: 6,
     height: 50,
-    fontSize: 16,
+    fontSize: 14,
+    fontFamily: "sarabun",
     justifyContent: "space-around",
   },
   link: {

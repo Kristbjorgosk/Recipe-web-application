@@ -13,25 +13,26 @@ import IngredientTagList from "../Component/IngredientTagList";
 const useStyles = makeStyles(() => ({
   root: {
     backgroundColor: "#D0D8D8",
+    padding: "15px 15px 15px 15px",
   },
   headerHeadline: {
+    color: "#161F22",
     fontSize: 49,
+    fontWeight: 700,
+    fontFamily: "quicksand",
     display: "flex",
-    flexWrap: "nowrap",
     justifyContent: "center",
-    alignItems: "center",
-    alignContent: "spaceBetween",
+    textAlign: "cetner",
     backgroundColor: "#EAF2F2",
   },
   headlineSection: {
     backgroundColor: "#EAF2F2",
-    display: "inline-flex",
+    display: "flex",
   },
   waves: {
     backgroundColor: "#EAF2F2",
     display: "flex",
     alignItems: "flex-end",
-    marginBottom: 40,
   },
 }));
 
@@ -74,65 +75,67 @@ function RecipesFilterPage() {
 
   const classes = useStyles();
 
-  // this is thanks to Shubham Khatri. 
+  // this is thanks to Shubham Khatri.
   // used to make sure the next effect is only run on updates and not on the initial mount
   const isInitialMount = useRef(true);
 
   // effect that should run every time the component's state is updated
-  useEffect(() => {
-    if (isInitialMount.current === true) {
-      isInitialMount.current = false;
-      return;
-    }
+  useEffect(
+    () => {
+      if (isInitialMount.current === true) {
+        isInitialMount.current = false;
+        return;
+      }
 
-    let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&addRecipeInformation=true&offset=${offset}&number=${number}`;
+      let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&addRecipeInformation=true&offset=${offset}&number=${number}`;
 
-    // append query to URL
-    if (query) {
-      url += `&query=${query}`;
-    }
+      // append query to URL
+      if (query) {
+        url += `&query=${query}`;
+      }
 
-    // append ingredients to URL with commas between them
-    if (ingredients.length > 0) {
-      const ingredientStr = ingredients.join(",");
-      url += `&includeIngredients=${ingredientStr}`;
-    }
+      // append ingredients to URL with commas between them
+      if (ingredients.length > 0) {
+        const ingredientStr = ingredients.join(",");
+        url += `&includeIngredients=${ingredientStr}`;
+      }
 
-    // append diet to URL
-    if (diet) {
-      url += `&diet=${diet}`;
-    }
+      // append diet to URL
+      if (diet) {
+        url += `&diet=${diet}`;
+      }
 
-    // append maxReadyTime to URL
-    if (maxReadyTime) {
-      url += `&maxReadyTime=${maxReadyTime}`;
-    }
+      // append maxReadyTime to URL
+      if (maxReadyTime) {
+        url += `&maxReadyTime=${maxReadyTime}`;
+      }
 
-    // get recipes with filters from Spoonacular API
-    fetch(url)
-      .then((response) => {
-        // check if API request was successful
-        if (response.status >= 200 && response.status < 300) {
-          // parse the response as JSON data
-          return response.json();
-        }
+      // get recipes with filters from Spoonacular API
+      fetch(url)
+        .then((response) => {
+          // check if API request was successful
+          if (response.status >= 200 && response.status < 300) {
+            // parse the response as JSON data
+            return response.json();
+          }
 
-        // if the API request was not successfull then throw an error
-        throw new Error(
-          `Error ${response.status} - Could not get recipes from API`
-        );
-      })
-      .then((data) => {
-        // update the recipe list with the API data
-        // setRecipes(data.results);
-        setRecipes([...recipes, ...data.results]);
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
-  },
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  [query, ingredients, diet, maxReadyTime, offset]);
+          // if the API request was not successfull then throw an error
+          throw new Error(
+            `Error ${response.status} - Could not get recipes from API`
+          );
+        })
+        .then((data) => {
+          // update the recipe list with the API data
+          // setRecipes(data.results);
+          setRecipes([...recipes, ...data.results]);
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [query, ingredients, diet, maxReadyTime, offset]
+  );
 
   // removes ingredient from ingredient state array
   const removeIngredient = (ingredient) => {
@@ -141,7 +144,7 @@ function RecipesFilterPage() {
 
   const onSeeMoreClick = () => {
     setOffset(offset + number);
-  }
+  };
 
   return (
     <div>
@@ -149,8 +152,8 @@ function RecipesFilterPage() {
         Recipes
       </Typography>
       <div className={classes.headlineSection}>
-        <SearchByRecipe 
-          setQuery={setQuery} 
+        <SearchByRecipe
+          setQuery={setQuery}
           setRecipes={setRecipes}
           setOffset={setOffset}
         />
@@ -158,37 +161,48 @@ function RecipesFilterPage() {
           ingredients={ingredients}
           removeIngredient={removeIngredient}
         />
-        
+
         <RecipeFilterOverlay
           setDiet={setDiet}
           diet={diet}
-
           setMaxReadyTime={setMaxReadyTime}
           maxReadyTime={maxReadyTime}
-          
           setIngredients={setIngredients}
           ingredients={ingredients}
-
           setRecipes={setRecipes}
           setOffset={setOffset}
         />
       </div>
 
+      <svg
+        className={classes.waves}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
+        <path
+          fill="#D0D8D8"
+          d="M0,128L60,160C120,192,240,256,360,272C480,288,600,256,720,208C840,160,960,96,1080,96C1200,96,1320,160,1380,192L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+        ></path>
+      </svg>
       <div className={classes.root}>
-        <svg
-          className={classes.waves}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-        >
-          <path
-            fill="#D0D8D8"
-            d="M0,128L60,160C120,192,240,256,360,272C480,288,600,256,720,208C840,160,960,96,1080,96C1200,96,1320,160,1380,192L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-          ></path>
-        </svg>
-
         <RecipeList recipes={recipes} />
 
-        <Button onClick={onSeeMoreClick}>See more</Button>
+        <Button
+          style={{
+            backgroundColor: "#A2CCBE",
+            color: "#293539",
+            border: "none",
+            height: 39,
+            borderRadius: "30px 30px 30px 30px",
+            fontFamily: "quicksand",
+            fontWeight: 700,
+            fontSize: 20,
+            marginTop: 15,
+          }}
+          onClick={onSeeMoreClick}
+        >
+          See more
+        </Button>
       </div>
     </div>
   );

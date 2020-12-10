@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#EAF2F2",
     color: "#161F22",
     fontSize: 49,
-    paddingLeft: 15,
-    justifyContent: "center",
-    alignItems: "center",
+    fontWeight: 700,
+    fontFamily: "quicksand",
     display: "flex",
+    textAlign: "center",
   },
   waves: {
     backgroundColor: "#EAF2F2",
