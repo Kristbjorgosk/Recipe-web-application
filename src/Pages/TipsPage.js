@@ -7,7 +7,7 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
+import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 
 import Divider from "@material-ui/core/Divider";
 import "fontsource-quicksand";
@@ -19,10 +19,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#EAF2F2",
     height: "100%",
     color: "#161F22",
-    position: "relative",
-
-    paddingBottom: 20,
-
+    paddingBottom: 100,
+    paddingTop: 80,
     alignItems: "center",
     justifyContent: "center",
     display: "flex",
@@ -33,7 +31,9 @@ const useStyles = makeStyles((theme) => ({
     color: "#161F22",
     fontSize: 49,
     paddingLeft: 15,
-    paddingBottom: 20,
+    paddingBottom: 50,
+    justifyContent: "center",
+    display: "flex",
   },
 
   expand: {
@@ -90,17 +90,25 @@ function TipsPage() {
     <div className={classes.root}>
       <Typography className={classes.tipHeadline}>Tips & Ideas </Typography>
       <div className={classes.tip1}>
-        BEGINNERS GUIDE
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: showFirstTip,
-          })}
-          onClick={handleShowFirstTipClick}
-          aria-expanded={showFirstTip}
-          aria-label="show more"
+        <p
+          style={{
+            display: "flex",
+            alignItems: "center",
+            paddingLeft: 20,
+          }}
         >
-          <ExpandMoreIcon />
-        </IconButton>
+          BEGINNERS GUIDE
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: showFirstTip,
+            })}
+            onClick={handleShowFirstTipClick}
+            aria-expanded={showFirstTip}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>{" "}
+        </p>
         <Collapse in={showFirstTip} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography paragraph>
@@ -144,17 +152,26 @@ function TipsPage() {
         </Collapse>
       </div>
       <div className={classes.tip2}>
-        KITCHEN FLOW
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: showSecondTip,
-          })}
-          onClick={handleShowSecondTipClick}
-          aria-expanded={showSecondTip}
-          aria-label="show more"
+        <p
+          style={{
+            display: "flex",
+            alignItems: "center",
+            paddingLeft: 20,
+          }}
         >
-          <ExpandMoreIcon />
-        </IconButton>
+          {" "}
+          KITCHEN FLOW
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: showSecondTip,
+            })}
+            onClick={handleShowSecondTipClick}
+            aria-expanded={showSecondTip}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>{" "}
+        </p>
         <Collapse in={showSecondTip} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography paragraph>
@@ -253,17 +270,26 @@ function TipsPage() {
         </Collapse>
       </div>
       <div className={classes.tip3}>
-        ENJOY COOKING
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: showThirdTip,
-          })}
-          onClick={handleShowThirdTipClick}
-          aria-expanded={showThirdTip}
-          aria-label="show more"
+        <p
+          style={{
+            display: "flex",
+            alignItems: "center",
+            paddingLeft: 20,
+          }}
         >
-          <ExpandMoreIcon />
-        </IconButton>
+          {" "}
+          ENJOY COOKING
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: showThirdTip,
+            })}
+            onClick={handleShowThirdTipClick}
+            aria-expanded={showThirdTip}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>{" "}
+        </p>
         <Collapse in={showThirdTip} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography paragraph>"healthy eating is too hard"</Typography>
