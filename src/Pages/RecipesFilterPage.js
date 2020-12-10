@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 // import RecipeSearchForm from "../Component/RecipeSearchForm";
 import RecipeList from "../Component/RecipeList";
 import { apiKey } from "../Api";
@@ -41,8 +41,8 @@ function RecipesFilterPage() {
   const [diet, setDiet] = React.useState("");
   const [maxReadyTime, setMaxReadyTime] = React.useState("");
   const [recipes, setRecipes] = React.useState([]);
-  const [offset, setOffset] = React.useState("");
-  const [number, setnumber] = React.useState("");
+  const [offset, setOffset] = React.useState(0);
+  const [number, setNumber] = React.useState(12);
 
   // effect that should only run when component is mounted
   useEffect(() => {
@@ -54,8 +54,8 @@ function RecipesFilterPage() {
     const diet = params.get("diet") || "";
     const maxReadyTime = params.get("maxReadyTime") || "";
     let ingredients = params.get("ingredients") || "";
-    const offset = params.get("offset") || "";
-    const number = params.get("number") || "";
+    const offset = params.get("offset") || 0;
+    const number = params.get("number") || 12;
 
     // split ingredients on commas to an array
     ingredients = ingredients.split(",");
@@ -69,73 +69,79 @@ function RecipesFilterPage() {
     setDiet(diet);
     setMaxReadyTime(maxReadyTime);
     setOffset(offset);
-    setnumber(number);
+    setNumber(number);
   }, []);
 
   const classes = useStyles();
 
+  // this is thanks to Shubham Khatri. 
+  // used to make sure the next effect is only run on updates and not on the initial mount
+  const isInitialMount = useRef(true);
+
   // effect that should run every time the component's state is updated
-  useEffect(
-    () => {
-      let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&addRecipeInformation=true`;
+  useEffect(() => {
+    if (isInitialMount.current === true) {
+      isInitialMount.current = false;
+      return;
+    }
 
-      // append query to URL
-      if (query) {
-        url += `&query=${query}`;
-      }
+    let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&addRecipeInformation=true&offset=${offset}&number=${number}`;
 
-      // append ingredients to URL with commas between them
-      if (ingredients.length > 0) {
-        const ingredientStr = ingredients.join(",");
-        url += `&includeIngredients=${ingredientStr}`;
-      }
+    // append query to URL
+    if (query) {
+      url += `&query=${query}`;
+    }
 
-      // append diet to URL
-      if (diet) {
-        url += `&diet=${diet}`;
-      }
+    // append ingredients to URL with commas between them
+    if (ingredients.length > 0) {
+      const ingredientStr = ingredients.join(",");
+      url += `&includeIngredients=${ingredientStr}`;
+    }
 
-      // append maxReadyTime to URL
-      if (maxReadyTime) {
-        url += `&maxReadyTime=${maxReadyTime}`;
-      }
-      if (number) {
-        url += `&number=20`;
-      }
+    // append diet to URL
+    if (diet) {
+      url += `&diet=${diet}`;
+    }
 
-      // console.log(url);
+    // append maxReadyTime to URL
+    if (maxReadyTime) {
+      url += `&maxReadyTime=${maxReadyTime}`;
+    }
 
-      // get recipes with filters from Spoonacular API
-      fetch(url)
-        .then((response) => {
-          // check if API request was successful
-          if (response.status >= 200 && response.status < 300) {
-            // parse the response as JSON data
-            return response.json();
-          }
+    // get recipes with filters from Spoonacular API
+    fetch(url)
+      .then((response) => {
+        // check if API request was successful
+        if (response.status >= 200 && response.status < 300) {
+          // parse the response as JSON data
+          return response.json();
+        }
 
-          // if the API request was not successfull then throw an error
-          throw new Error(
-            `Error ${response.status} - Could not get recipes from API`
-          );
-        })
-        .then((data) => {
-          // update the recipe list with the API data
-          setRecipes(data.results);
-          // console.log(data.results);
-        })
-        .catch((err) => {
-          alert(err.message);
-        });
-    },
-    [query, ingredients, diet, maxReadyTime, number],
-    offset
-  );
+        // if the API request was not successfull then throw an error
+        throw new Error(
+          `Error ${response.status} - Could not get recipes from API`
+        );
+      })
+      .then((data) => {
+        // update the recipe list with the API data
+        // setRecipes(data.results);
+        setRecipes([...recipes, ...data.results]);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  },
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  [query, ingredients, diet, maxReadyTime, offset]);
 
   // removes ingredient from ingredient state array
   const removeIngredient = (ingredient) => {
     setIngredients(ingredients.filter((item) => item !== ingredient));
   };
+
+  const onSeeMoreClick = () => {
+    setOffset(offset + number);
+  }
 
   return (
     <div>
@@ -143,18 +149,28 @@ function RecipesFilterPage() {
         Recipes
       </Typography>
       <div className={classes.headlineSection}>
-        <SearchByRecipe setQuery={setQuery} />
+        <SearchByRecipe 
+          setQuery={setQuery} 
+          setRecipes={setRecipes}
+          setOffset={setOffset}
+        />
         <IngredientTagList
           ingredients={ingredients}
           removeIngredient={removeIngredient}
         />
+        
         <RecipeFilterOverlay
           setDiet={setDiet}
           diet={diet}
+
           setMaxReadyTime={setMaxReadyTime}
           maxReadyTime={maxReadyTime}
+          
           setIngredients={setIngredients}
           ingredients={ingredients}
+
+          setRecipes={setRecipes}
+          setOffset={setOffset}
         />
       </div>
 
@@ -172,7 +188,7 @@ function RecipesFilterPage() {
 
         <RecipeList recipes={recipes} />
 
-        <Button onClick={recipes.number}>See more</Button>
+        <Button onClick={onSeeMoreClick}>See more</Button>
       </div>
     </div>
   );

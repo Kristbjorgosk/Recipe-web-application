@@ -41,6 +41,8 @@ export default function RecipeFilterOverlay(props) {
   };
 
   const handleClose = () => {
+    props.setRecipes([]);
+    props.setOffset(0);
     props.setIngredients(ingredients);
     props.setDiet(diet);
     props.setMaxReadyTime(maxReadyTime);
@@ -102,7 +104,6 @@ export default function RecipeFilterOverlay(props) {
                 backgroundColor: "#A2CCBE",
                 color: "#293539",
                 border: "none",
-                height: 30,
                 maxWidth: 200,
                 height: 39,
                 marginBottom: 15,
