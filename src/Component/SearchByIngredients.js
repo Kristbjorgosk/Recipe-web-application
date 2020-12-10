@@ -54,7 +54,20 @@ class SearchByIngredients extends Component {
           onKeyDown={this.onKeyDown}
           placeholder="Search for Ingredients"
         />
-        <button onClick={this.handleClick}>Add</button>
+        <button
+          style={{
+            backgroundColor: "#A2CCBE",
+            border: "none",
+            height: 30,
+            maxWidth: 90,
+            height: 39,
+            marginLeft: 3,
+            borderRadius: "0px 30px 30px 0px",
+          }}
+          onClick={this.handleClick}
+        >
+          Add
+        </button>
       </div>
     );
   }
