@@ -108,8 +108,6 @@ function RecipesFilterPage() {
       url += `&maxReadyTime=${maxReadyTime}`;
     }
 
-    console.log(url);
-
     // get recipes with filters from Spoonacular API
     fetch(url)
       .then((response) => {
@@ -125,11 +123,9 @@ function RecipesFilterPage() {
         );
       })
       .then((data) => {
-        console.log(data)
         // update the recipe list with the API data
         // setRecipes(data.results);
         setRecipes([...recipes, ...data.results]);
-        // console.log(data.results);
       })
       .catch((err) => {
         alert(err.message);
