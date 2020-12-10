@@ -46,6 +46,33 @@ function RecipesFilterPage() {
   const [number, setNumber] = React.useState(12);
 
  
+  // effect that should only run when component is mounted
+  useEffect(() => {
+    // get query string parameters from URL
+    const params = new URLSearchParams(window.location.search);
+
+    // get query, diet and maxReadyTime from query string parameters
+    const query = params.get("query") || "";
+    const diet = params.get("diet") || "";
+    const maxReadyTime = params.get("maxReadyTime") || "";
+    let ingredients = params.get("ingredients") || "";
+    const offset = params.get("offset") || 0;
+    const number = params.get("number") || 12;
+
+    // split ingredients on commas to an array
+    ingredients = ingredients.split(",");
+
+    // remove empty ingredients from array
+    ingredients = ingredients.filter((ingredient) => ingredient);
+
+    // set component state
+    setQuery(query);
+    setIngredients(ingredients);
+    setDiet(diet);
+    setMaxReadyTime(maxReadyTime);
+    setOffset(offset);
+    setNumber(number);
+  }, []);
 
   const classes = useStyles();
 
