@@ -10,7 +10,7 @@ class RecipeList extends Component {
           {/* render a card for every recipe */}
           {this.props.recipes.map((recipe) => {
             return (
-              <Grid key={recipe.id} item xs={12} sm={6} md={3}>
+              <Grid key={recipe.id} item xs={12} sm={6}>
                 <RecipeCard recipe={recipe} />
               </Grid>
             );

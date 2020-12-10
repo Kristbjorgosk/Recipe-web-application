@@ -16,7 +16,6 @@ const useStyles = makeStyles(() => ({
     height: "100%",
     color: "#161F22",
     position: "relative",
-    paddingLeft: 5,
     paddingBottom: 20,
     overflow: "hidder",
     marginTop: -1,
@@ -24,6 +23,13 @@ const useStyles = makeStyles(() => ({
 
   headerTextSection: {
     backgroundColor: "#EAF2F2",
+  },
+  headerHeadline: {
+    color: "#161F22",
+    fontSize: 49,
+    paddingLeft: 15,
+    fontWeight: 700,
+    fontFamily: "quicksand",
   },
   waves: {
     backgroundColor: "#EAF2F2",
@@ -35,16 +41,14 @@ const useStyles = makeStyles(() => ({
     padding: 20,
     fontWeight: "bold",
     marginTop: 10,
+    fontFamily: "quicksand",
+    fontSize: 26,
   },
 
-  headerHeadline: {
-    color: "#161F22",
-    fontSize: 49,
-    paddingLeft: 15,
-  },
   text: {
     color: "#161F22",
     fontSize: 22,
+    fontFamily: "sarabun",
     paddingLeft: 15,
     paddingRight: 15,
   },

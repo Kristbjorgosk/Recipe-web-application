@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Chip from "@material-ui/core/Chip";
+import "fontsource-sarabun";
 
 class IngredientTag extends Component {
   // remove tag if close button is clicked
@@ -10,7 +10,19 @@ class IngredientTag extends Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          backgroundColor: "#3898A5",
+          color: "#EAF2F2",
+          marginTop: 4,
+          borderRadius: 15,
+          paddingLeft: "15px",
+          width: 120,
+          fontSize: 20,
+          fontFamily: "sarabun",
+          fontWeight: "bold",
+        }}
+      >
         <span>{this.props.tag}</span>
         {this.props.closable && <i onClick={this.onCloseClick}>&times;</i>}
       </div>

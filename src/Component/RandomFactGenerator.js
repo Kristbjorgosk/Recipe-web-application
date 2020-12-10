@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { fungeneratorsApiKey } from "../Api";
-import "fontsource-quicksand";
+import "fontsource-sarabun";
 import Typography from "@material-ui/core/Typography";
 
 class RandomFactGenerator extends Component {
@@ -34,10 +34,14 @@ class RandomFactGenerator extends Component {
     ];
 
     // choose a random subcategory
-    const subcategory = subcategories[Math.floor(Math.random() * subcategories.length)];
+    const subcategory =
+      subcategories[Math.floor(Math.random() * subcategories.length)];
 
     // get random fact from Fungenerators API
-    fetch(`https://api.fungenerators.com/fact/random?category=food&subcategory=${subcategory}`, { headers })
+    fetch(
+      `https://api.fungenerators.com/fact/random?category=food&subcategory=${subcategory}`,
+      { headers }
+    )
       .then((response) => {
         // check if API request was successful
         if (response.status >= 200 && response.status < 300) {
@@ -46,7 +50,9 @@ class RandomFactGenerator extends Component {
         }
 
         // if the API request was not successfull then throw an error
-        throw new Error(`Error ${response.status} - Could not get random fact from API`);
+        throw new Error(
+          `Error ${response.status} - Could not get random fact from API`
+        );
       })
       .then((data) => {
         // set state fact from API response
@@ -54,7 +60,9 @@ class RandomFactGenerator extends Component {
         this.setState({ fact });
       })
       // alert if API request failed
-      .catch((err) => { alert(err.message); });
+      .catch((err) => {
+        alert(err.message);
+      });
   }
 
   render() {
@@ -65,8 +73,8 @@ class RandomFactGenerator extends Component {
             paddingLeft: 18,
             paddingRight: 15,
             paddingTop: 10,
-            fontFamily: "quicksand",
-            fontSize: 20,
+            fontFamily: "sarabun",
+            fontSize: 18,
           }}
           variant="body2"
           component="p"

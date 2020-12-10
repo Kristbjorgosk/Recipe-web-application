@@ -39,6 +39,9 @@ class SearchByMinutes extends Component {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            fontFamily: "quicksand",
+            fontWeight: 700,
+            fontSize: 26,
           }}
         >
           Time
@@ -46,7 +49,7 @@ class SearchByMinutes extends Component {
         <select
           id="minutesDropdown"
           style={{
-            backgroundColor: "#3898A5",
+            backgroundColor: "rgba(151, 157, 157, 1)",
             color: "#EAF2F2",
             width: 170,
             fontSize: 20,

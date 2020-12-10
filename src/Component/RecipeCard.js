@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
@@ -28,14 +27,14 @@ const useStyles = makeStyles(() => ({
   },
 
   cardtitile: {
-    fontSize: 22,
+    fontSize: 18,
     fontFamily: "rufina",
   },
   timeText: {
     margin: 0,
     fontSize: 16,
     fontFamily: "rufina",
-    paddingLeft: 7,
+    paddingLeft: 17,
   },
 }));
 
