@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "fontsource-sarabun";
+// import "fontsource-sarabun";
 
 class IngredientTag extends Component {
   // remove tag if close button is clicked
@@ -21,6 +21,8 @@ class IngredientTag extends Component {
           fontSize: 20,
           fontFamily: "sarabun",
           fontWeight: "bold",
+          display: "flex",
+          justifyContent: "space-between",
         }}
       >
         <span>{this.props.tag}</span>

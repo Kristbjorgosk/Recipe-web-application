@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TextField from "@material-ui/core/TextField";
+// import TextField from "@material-ui/core/TextField";
 
 class SearchByIngredients extends Component {
   onKeyDown = (e) => {
@@ -51,8 +51,6 @@ class SearchByIngredients extends Component {
             border: "1px solid #F0F9F9",
           }}
           type="search"
-          onKeyDown={this.onKeyDown}
-          placeholder="Search for Ingredients"
         />
         <button
           style={{
@@ -61,7 +59,6 @@ class SearchByIngredients extends Component {
             fontWeight: 700,
             fontSize: 20,
             border: "none",
-            height: 30,
             maxWidth: 90,
             height: 39,
             marginLeft: 3,

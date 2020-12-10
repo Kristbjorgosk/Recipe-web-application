@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import RecipeList from "../Component/RecipeList";
 import { makeStyles } from "@material-ui/core/styles";
+// import FavoriteButton from "./FavoriteButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +42,9 @@ function FavouritesPage() {
   return (
     <div>
       <Typography className={classes.headline}>Favorite Recipes 🖤</Typography>
-
+      {/* <FavoriteButton
+            aria-label="add to favorites"
+          /> */}
       <div className={classes.root}>
         <svg
           className={classes.waves}
