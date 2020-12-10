@@ -9,10 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 
-import Divider from "@material-ui/core/Divider";
 import "fontsource-quicksand";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {

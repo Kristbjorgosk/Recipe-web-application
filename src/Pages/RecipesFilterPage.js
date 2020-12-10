@@ -135,6 +135,7 @@ function RecipesFilterPage() {
         alert(err.message);
       });
   },
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   [query, ingredients, diet, maxReadyTime, offset]);
 
   // removes ingredient from ingredient state array
