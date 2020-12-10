@@ -20,6 +20,8 @@ export default function RecipeFilterOverlay(props) {
   };
 
   const handleClose = () => {
+    props.setRecipes([]);
+    props.setOffset(0);
     props.setIngredients(ingredients);
     props.setDiet(diet);
     props.setMaxReadyTime(maxReadyTime);

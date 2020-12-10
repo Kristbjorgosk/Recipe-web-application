@@ -8,6 +8,8 @@ class SearchByRecipe extends Component {
       const query = e.target.value;
 
       // set query to props
+      this.props.setRecipes([]);
+      this.props.setOffset(0);
       this.props.setQuery(query);
     }
   }
