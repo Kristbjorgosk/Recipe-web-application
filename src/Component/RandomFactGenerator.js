@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { fungeneratorsApiKey } from "../Api";
-import "fontsource-sarabun";
+// import "fontsource-sarabun";
 import Typography from "@material-ui/core/Typography";
 
 class RandomFactGenerator extends Component {

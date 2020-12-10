@@ -18,7 +18,7 @@ class SearchByRecipe extends Component {
     return (
       <input
         style={{
-          maxWidth: 300,
+          // maxWidth: 300,
           lineHeight: 2,
           fontSize: 20,
           borderRadius: "50px 0 0 50px",

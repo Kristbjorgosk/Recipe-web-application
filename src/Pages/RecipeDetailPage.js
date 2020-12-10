@@ -33,6 +33,7 @@ function RecipeDetailPage(props) {
     fetch(URL)
       .then((r) => r.json())
       .then((recipeDetails) => {
+        console.log(recipeDetails);
         setInfo(recipeDetails);
       });
   }, [params]);
@@ -44,10 +45,17 @@ function RecipeDetailPage(props) {
         <>
           <RecipeCard recipe={info}></RecipeCard>
 
+          <ul className={classes.instructionsList}>
+            {info.extendedIngredients.map((item) => {
+              return <li>{item.originalString}</li>;
+            })}
+          </ul>
+
           <div
             className={classes.instructionsList}
             dangerouslySetInnerHTML={{ __html: info.instructions }}
           />
+
         </>
       )}
     </div>
