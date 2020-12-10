@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import RecipeFilterOverlay from "../Component/RecipeFilterOverlay";
 import SearchByRecipe from "../Component/SearchByRecipe";
 import { Button } from "@material-ui/core";
+import IngredientTagList from "../Component/IngredientTagList";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles(() => ({
   waves: {
     backgroundColor: "#EAF2F2",
     display: "flex",
-    alignItems: "flexEnd",
+    alignItems: "flex-end",
   },
 }));
 
@@ -40,16 +41,6 @@ function RecipesFilterPage() {
   const [recipes, setRecipes] = React.useState([]);
   const [offset, setOffset] = React.useState("");
   const [number, setnumber] = React.useState("");
-
-  // adds ingredient to ingredient state array
-  const addIngredient = (ingredient) => {
-    setIngredients([...ingredients, ingredient]);
-  };
-
-  // removes ingredient from ingredient state array
-  const removeIngredient = (ingredient) => {
-    setIngredients(ingredients.filter((item) => item !== ingredient));
-  };
 
   // effect that should only run when component is mounted
   useEffect(() => {
@@ -137,8 +128,12 @@ function RecipesFilterPage() {
     },
     [query, ingredients, diet, maxReadyTime, number],
     offset,
-    
   );
+
+  // removes ingredient from ingredient state array
+  const removeIngredient = (ingredient) => {
+    setIngredients(ingredients.filter((item) => item !== ingredient));
+  };
 
   return (
     <div className={classes.headlineSection}>
@@ -159,17 +154,25 @@ function RecipesFilterPage() {
         ></path>
       </svg>
 
-      <RecipeFilterOverlay
-        addIngredient={addIngredient}
+      <SearchByRecipe setQuery={setQuery} />
+      <IngredientTagList
+        ingredients={ingredients}
         removeIngredient={removeIngredient}
+      />
+      
+      <RecipeFilterOverlay
         setDiet={setDiet}
+        diet={diet}
+
         setMaxReadyTime={setMaxReadyTime}
+        maxReadyTime={maxReadyTime}
+        
+        setIngredients={setIngredients}
         ingredients={ingredients}
       />
 
-      <SearchByRecipe setQuery={setQuery} />
-
       <RecipeList recipes={recipes} />
+      
       <Button onClick={recipes.number}>See more</Button>
     </div>
   );

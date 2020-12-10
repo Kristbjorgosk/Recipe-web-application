@@ -14,10 +14,10 @@ class RecipeSearchForm extends Component {
         <IngredientTagList
           ingredients={this.props.ingredients}
           removeIngredient={this.props.removeIngredient}
-          />
-        <SearchByDiet setDiet={this.props.setDiet} />
-        <SearchByMinutes setMaxReadyTime={this.props.setMaxReadyTime} />
-        
+          closable={true}
+        />
+        <SearchByDiet setDiet={this.props.setDiet} diet={this.props.diet} />
+        <SearchByMinutes setMaxReadyTime={this.props.setMaxReadyTime} maxReadyTime={this.props.maxReadyTime} />
       </div>
     );
   }

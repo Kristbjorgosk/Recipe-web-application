@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Chip from '@material-ui/core/Chip';
 
 class IngredientTag extends Component {
   // remove tag if close button is clicked
@@ -12,8 +11,9 @@ class IngredientTag extends Component {
     return (
       <div>
         <span>{this.props.tag}</span>
-        <i onClick={this.onCloseClick}>&times;</i>
-        {/* <Chip size="small" onDelete={handleDelete} /> */}
+        {this.props.closable && 
+          <i onClick={this.onCloseClick}>&times;</i>
+        }
       </div>
     );
   }
