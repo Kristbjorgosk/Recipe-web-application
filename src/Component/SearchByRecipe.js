@@ -26,6 +26,7 @@ class SearchByRecipe extends Component {
           display: "flex",
           paddingLeft: 15,
           border: "none",
+          marginLeft: 50,
         }}
         type="search"
         onKeyDown={this.onKeyDown}

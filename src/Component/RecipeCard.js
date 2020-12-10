@@ -49,7 +49,10 @@ function RecipeCard(props) {
         </Link>
 
         <CardContent>
-          <Link to={`/${props.recipe.id}`} style={{ textDecoration: "none" }}>
+          <Link
+            to={`/${props.recipe.id}`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
             <Typography
               className={classes.cardtitile}
               gutterBottom
