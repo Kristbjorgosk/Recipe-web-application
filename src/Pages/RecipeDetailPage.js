@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 15,
     fontFamily: "sarabun",
     fontWeight: 400,
+    listStyle: "none",
   },
 }));
 
@@ -55,7 +56,6 @@ function RecipeDetailPage(props) {
             className={classes.instructionsList}
             dangerouslySetInnerHTML={{ __html: info.instructions }}
           />
-
         </>
       )}
     </div>
