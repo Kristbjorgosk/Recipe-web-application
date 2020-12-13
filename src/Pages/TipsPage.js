@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
 
 function TipsPage() {
   const classes = useStyles();
+  /* to open only one tip at a time when clicked on a tip */
   const [showFirstTip, setShowFirstTip] = React.useState(false);
   const [showSecondTip, setShowSecondTip] = React.useState(false);
   const [showThirdTip, setShowThirdTip] = React.useState(false);
@@ -90,6 +91,7 @@ function TipsPage() {
   };
 
   return (
+    /* the collapse that holds the tips article is function imported from MUI */
     <div className={classes.root}>
       <Typography className={classes.tipHeadline}>Tips & Ideas </Typography>
       <div className={classes.tip1}>

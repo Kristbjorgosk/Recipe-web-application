@@ -9,6 +9,7 @@ import RandomFactGenerator from "../Component/RandomFactGenerator";
 import RandomRecipeGenerator from "../Component/RandomRecipeGenerator";
 import "fontsource-quicksand";
 
+// styling for everything on the frontpage
 const useStyles = makeStyles(() => ({
   root: {
     fontFamily: "quicksand",
@@ -66,6 +67,7 @@ function FrontPage() {
   return (
     <div className={classes.root}>
       <div className={classes.headerTextSection}>
+        {/* Typography is from MUI */}
         <Typography
           className={classes.headerHeadline}
           gutterBottom
@@ -79,6 +81,7 @@ function FrontPage() {
           Discover recipes, get motivated and start cooking!
         </Typography>
 
+        {/* svg used to create the wasves on the body background */}
         <svg
           className={classes.waves}
           xmlns="http://www.w3.org/2000/svg"
@@ -93,9 +96,10 @@ function FrontPage() {
 
       <Typography className={classes.bodyheaddline}>Categories</Typography>
 
+      {/* Buttons are wrapped in a button group to have them all horizontal and style them to scroll (donw above in the style variable) */}
       <ButtonGroup orientation="horizontal" className={classes.takkar}>
         {/* Displaying the Takki function from the Button.js file */}
-        {/* Categories is the function above, it displays the diet that is in the () */}
+        {/* diet is from the API and inside the "" string is the name of the diets from the API */}
         <Takki diet="" text="See All"></Takki>
         <Takki diet="vegan" text="Vegan"></Takki>
         <Takki diet="ketogenic" text="Keto"></Takki>
@@ -108,6 +112,7 @@ function FrontPage() {
         Recipe of the day
       </Typography>
 
+      {/* importing the random recipe, it is in a seperate compoonent */}
       <RandomRecipeGenerator />
 
       <Typography variant="h6" component="p" className={classes.bodyheaddline}>

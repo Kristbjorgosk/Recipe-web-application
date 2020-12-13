@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import RecipeList from "../Component/RecipeList";
 import { makeStyles } from "@material-ui/core/styles";
-// import FavoriteButton from "./FavoriteButton";
 
+// styling for everything on this page
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100%",
@@ -43,10 +43,8 @@ function FavouritesPage() {
   return (
     <div>
       <Typography className={classes.headline}>Favorite Recipes 🖤</Typography>
-      {/* <FavoriteButton
-            aria-label="add to favorites"
-          /> */}
       <div className={classes.root}>
+        {/*  svg used to create the wasves on the body background  */}
         <svg
           className={classes.waves}
           xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +56,7 @@ function FavouritesPage() {
           ></path>
         </svg>
 
+        {/* importing the recipeList which is another component, so the recipes will be displayd in a recipeCard just like on the main recipe page */}
         <RecipeList recipes={recipes} />
       </div>
     </div>

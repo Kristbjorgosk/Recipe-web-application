@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
-// import Typography from "@material-ui/core/Typography";
 import logo from "../Logo/zenpotlogo.svg";
 
 // setting up the styles, in this case, just for the "logo" - will change the logo once we have one
@@ -39,17 +38,12 @@ function Header(props) {
     <React.Fragment>
       <CssBaseline />
 
-      {/* AppBar is the header itself */}
-
       {/* Toolbar keeps the logo / image */}
       <Toolbar className={classes.header}>
         <img className={classes.logo} src={logo} alt=""></img>
-
-        {/* the text that is inside the header */}
       </Toolbar>
     </React.Fragment>
   );
 }
 
-// it is imported in the app.js folder
 export default Header;

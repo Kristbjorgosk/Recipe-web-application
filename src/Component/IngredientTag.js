@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import "fontsource-sarabun";
 
 class IngredientTag extends Component {
   // remove tag if close button is clicked

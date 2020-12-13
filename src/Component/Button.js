@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-//
+
 const useStyles = makeStyles(() => ({
   buttons: {
     background: " #3898A5 ",
@@ -25,12 +25,6 @@ function Takki(props) {
 
   return (
     <>
-      {/* the Button is imported above from MUI, the value for props is set in app.js */}
-
-      {/* <Button onClick={props.click} className={classes.buttons}>
-        {props.text}
-      </Button> */}
-
       <Link
         className={classes.link}
         to={`/RecipesFilterPage?diet=${props.diet}`}
@@ -41,5 +35,5 @@ function Takki(props) {
   );
 }
 
-// it is imported in the app.js folder
+// it is imported in the Frontpage.js folder
 export default Takki;

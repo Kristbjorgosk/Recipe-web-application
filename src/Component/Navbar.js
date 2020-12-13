@@ -9,8 +9,6 @@ import HomeIcon from "@material-ui/icons/Home";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 const useStyles = makeStyles({
   root: {
     position: "sticky",
@@ -24,8 +22,10 @@ const useStyles = makeStyles({
 function Navbar() {
   const classes = useStyles();
 
+  /*  Declare a new state variable, in this case we call it info  */
   const [value, setValue] = React.useState(0);
 
+  /* when clicked on each tab / icon the navigate to the value it holds */
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -40,6 +40,7 @@ function Navbar() {
       textColor="3898A5"
       aria-label="icon label tabs example"
     >
+      {/* using Link from react router to navigate to a different page */}
       <Tab to="/" component={Link} value={"/"} icon={<HomeIcon />} />
       <Tab
         to="/Tipspage"
